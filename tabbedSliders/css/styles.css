@@ -1,0 +1,244 @@
+/***
+* Tabbed Form
+* @author: Tamuir khan <tamuir@emrialo.com>
+* @version: 1.0 <1-1-2011>
+**
+css reset*/
+HTML, BODY, DIV, SPAN, APPLET, OBJECT, IFRAME, H1, H2, H3, H4, H5, H6, P, BLOCKQUOTE, PRE, A, ABBR, ACRONYM, ADDRESS, BIG, CITE, CODE, DEL, DFN, EM, FONT, IMG, INS, KBD, Q, S, SAMP, SMALL, STRIKE, STRONG, SUB, SUP, TT, VAR, DL, DT, DD, OL, UL, LI, FIELDSET, FORM, LABEL, LEGEND, TABLE, CAPTION, TBODY, TFOOT, THEAD, TR, TH, TD
+{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+:focus
+{
+	outline: 0;
+}
+BODY
+{
+	color: #000000;
+	background: #FFFFFF;
+	font: normal normal normal 11pt/1.3em Arial;
+}
+OL, UL
+{
+	list-style: none;
+}
+TABLE
+{
+	border-collapse: separate;
+	border-spacing: 0;
+}
+CAPTION, TH, TD
+{
+	text-align: left;
+	font-weight: normal;
+}
+BLOCKQUOTE:before, BLOCKQUOTE:after, Q:before, Q:after
+{
+	content: "";
+}
+BLOCKQUOTE, Q
+{
+	quotes: "" "";
+}
+/*Tabbed Form*/
+#container
+{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+#container H2
+{
+	text-align: center;
+	font: normal normal bold 2em/1.3em Georgia;
+	padding: 20px 0;
+}
+#nav
+{
+	position:absolute;
+	top:35%;
+	left:50%;
+	width :500px;
+	margin-left:-115px;
+	margin-top:-100px;
+	z-index: 1000;
+
+	padding-bottom: 12px;
+}
+#nav UL
+{
+	text-align: center;
+	margin: 0;
+	padding: 9px 221px 0 0;
+	list-style: none;
+}
+#nav LI
+{
+	float: left;
+	background: url(../imgs/tableft.png) no-repeat 0 -34px;
+	margin: 0;
+	padding: 0 3px;
+}
+#nav A
+{
+	float: left;
+	display: block;
+	width: 0.1em;
+	background: url(../imgs/tabright.png) no-repeat 100% -34px;
+	padding: 5px 15px 4px 13px;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 10pt;
+	color: #4A4B4A;
+}
+#nav>UL A
+{
+	width: auto;
+}
+/*Commented Backslash Hack hides rule from IE5-Mac \*/
+#nav A
+{
+	float: none;
+}
+/*End IE5-Mac hack*/
+#nav A:hover
+{
+	color: #FFF;
+}
+#nav .current
+{
+	background-position: left top;
+	border-width: 0;
+}
+#nav .current A
+{
+	background-position: 100% 0;
+	color: #FFF;
+}
+#nav LI:hover, #nav LI:hover A
+{
+	background-position: left top;
+	color: #FFF;
+}
+#nav LI:hover A
+{
+	background-position: 100% 0;
+}
+#nav .current-cat A:link, #nav .current-cat A:visited, #nav .current-cat A:visited, #nav .current-cat A:hover
+{
+	color: #FFFFFF;
+}
+/*Form*/
+#formWrapper
+{
+	clear: both;
+	width: 680px;
+	overflow: hidden;
+}
+.form H3.formheading
+{
+	font: normal normal bold 1.5em/1.3em Georgia;
+	padding: 20px 0;
+	color: #C9C9C9;
+}
+#formWrapper UL LI
+{
+	float: left;
+	display: inline;
+}
+#formWrapper UL
+{
+	width: 2050px;
+	left: 0;
+	position: relative;
+}
+.form
+{
+	clear: both;
+}
+.leftBlock
+{
+	width: 300px;
+	float: left;
+}
+.field
+{
+	clear: both;
+	padding: 10px 0;
+}
+.field LABEL
+{
+	clear: both;
+	display: block;
+	padding-bottom: 10px;
+	font-weight: bold;
+	font-size: 0.9em;
+	color: #64829A;
+	width: 80%;
+}
+.textfield
+{
+	background: url(../imgs/textfield.png) no-repeat;
+	border: 0;
+	width: 262px;
+	height: 16px;
+	color: #90AAC0;
+	padding: 9px;
+}
+/*Right Block*/
+.rightBlock
+{
+	float: right;
+	width: 380px;
+}
+.message
+{
+	clear: both;
+	padding: 10px 0;
+}
+.message LABEL
+{
+	clear: both;
+	display: block;
+	padding-bottom: 10px;
+	font-weight: bold;
+	font-size: 0.9em;
+	color: #64829A;
+	width: 80%;
+}
+.tArea
+{
+	background: url(../imgs/textarea.png) no-repeat;
+	width: 280px;
+	height: 200px;
+	color: #90AAC0;
+	clear: both;
+
+}
+.textarea
+{
+	border: 0;
+	width: 260px;
+	background-color: transparent;
+	height: 168px;
+	margin: 5px 0 0 5px;
+	color: #90AAC0;
+	padding: 9px 0px 12px 9px;
+	overflow: auto;
+		resize: none;
+/*resize: none*/
+}
+.submitBtn
+{
+	padding: 10px 0;
+	clear: both;
+	width: 580px;
+}
