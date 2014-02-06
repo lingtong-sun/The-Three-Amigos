@@ -225,7 +225,7 @@ BLOCKQUOTE, Q
 	color: #90AAC0;
 	padding: 9px 0px 12px 9px;
 	overflow: auto;
-		resize: none;
+	resize: none;
 /*resize: none*/
 }
 .submitBtn
@@ -234,10 +234,21 @@ BLOCKQUOTE, Q
 	clear: both;
 	width: 580px;
 }
-
+.newMessageBtn
+{
+	width: 98%;
+	bottom: 0%;
+	position: absolute;
+}
+.newMessageBtn input
+{
+	width: 100%;
+	max-height:25%;
+}
 #chatPage
 {
 	margin-left: 15px;
+	height: 500px;
 	border: 1px solid black;
 }
 
