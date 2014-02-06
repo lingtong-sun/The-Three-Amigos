@@ -1,52 +1,130 @@
-<!doctype html>
-
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>Spanglish</title>	
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
-	<link href="/css/introHCI.css" rel="stylesheet">
-	<!-- this is a comment in HTML -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="tabbedSliders/css/styles.css" rel="stylesheet" type="text/css" />
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->        
+<title>Spanglish</title>
 </head>
-
 <body>
-	<div class="container">
-		<!-- h1 through h6 are headers. The higher the number, the smaller the header -->
-		<!-- p means paragraph -->
-		<div class="jumbotron">
-			<h1>Spanglish</h1>
-		</div>
-
-		<ol>
-		{{#each projects}}
-			<li><a href="#{{id}}">{{name}}</a></li>
-		{{/each}}
-		</ol>
-
-		<h4>Projects</h4>
-		<!-- divs are invisible structuring elements that stack vertically by default. Use them to organize your code -->
-		<!-- img tags are images. Lorem Pixel will deliver random images; handy! -->
-		<!-- a are anchors, also known as hyperlinks. Use the href attribute to tell the browser where to go when the user clicks -->
-		{{#each projects}}
-		<div class="project" id="{{id}}">
-			<a href="project/{{name}}" class="thumbnail">
-				<img src="images/{{image}}" alt="Lorem Pixel image" class="img">
-				<p>{{name}}</p>
-			</a>
-		</div>
-		{{/each}}
-	</div>
-
-	<script src="https://code.jquery.com/jquery.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
+<div id="container">
+  <h2> Spanglish </h2>
+  <div id="nav">
+    <ul>
+      <li class="current"> <a href="#" id="contact" title="Chats">Chats</a></li>
+      <li><a href="#" id="quote" title="Request a Quote">Friends</a></li>
+      <li><a href="#" id="demo" title="Request a Demo">Settings</a></li>
+    </ul>
+  </div>
+  <div id="formWrapper">
+    <ul>
+      <li>
+        <div class="form">
+        	<h3 class="formheading">Contact Us</h3>
+          <form action="#">
+            <div class="leftBlock">
+              <div class="field">
+                <label>Name</label>
+                <input type="text" name="name" class="textfield" />
+              </div>
+              <div class="field">
+                <label>Email</label>
+                <input type="text" name="email" class="textfield" />
+              </div>
+              <div class="field">
+                <label>Subject</label>
+                <input type="text" name="subject" class="textfield" />
+              </div>
+              <!-- end of leftBlock  --> 
+            </div>
+            <div class="rightBlock">
+            <div class="message">
+              <label>Message</label>
+              <div class="tArea">
+                <textarea  class="textarea" cols="18" rows="3"></textarea>
+              </div>
+            </div>
+            <!-- end of RightBlock  -->
+            </div>
+            <div class="submitBtn">
+              <input type="image" src="tabbedSliders/imgs/submit.png"  />
+            </div>
+          </form>
+        </div>
+      </li>
+      <li>
+        <div class="form">
+        	<h3 class="formheading">Request a Quote</h3>
+          <form action="#">
+            <div class="leftBlock">
+              <div class="field">
+                <label>Name</label>
+                <input type="text" name="name" class="textfield" />
+              </div>
+              <div class="field">
+                <label>Email</label>
+                <input type="text" name="email" class="textfield" />
+              </div>
+              <div class="field">
+                <label>Subject</label>
+                <input type="text" name="subject" class="textfield" />
+              </div>
+              <!-- end of leftBlock  --> 
+            </div>
+            <div class="rightBlock">
+            <div class="message">
+              <label>Message</label>
+              <div class="tArea">
+                <textarea  class="textarea" cols="18" rows="3"></textarea>
+              </div>
+            </div>
+            <!-- end of RightBlock  -->
+            </div>
+            <div class="submitBtn">
+              <input type="image" src="tabbedSliders/imgs/submit.png"  />
+            </div>
+          </form>
+        </div>
+      </li>
+      <li>
+        <div class="form">
+        	<h3 class="formheading">Request a Demo</h3>
+          <form action="#">
+            <div class="leftBlock">
+              <div class="field">
+                <label>Name</label>
+                <input type="text" name="name" class="textfield" />
+              </div>
+              <div class="field">
+                <label>Email</label>
+                <input type="text" name="email" class="textfield" />
+              </div>
+              <div class="field">
+                <label>Subject</label>
+                <input type="text" name="subject" class="textfield" />
+              </div>
+              <!-- end of leftBlock  --> 
+            </div>
+            <div class="rightBlock">
+            <div class="message">
+              <label>Message</label>
+              <div class="tArea">
+                <textarea class="textarea" cols="18" rows="3"></textarea>
+              </div>
+            </div>
+            <!-- end of RightBlock  -->
+            </div>
+            <div class="submitBtn">
+              <input type="image" src="tabbedSliders/imgs/submit.png"  />
+            </div>
+          </form>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<script type="text/javascript" src="tabbedSliders/js/jquery-1.4.4.min.js"></script> 
+<script type="text/javascript" src="tabbedSliders/js/easing.js"></script> 
+<script type="text/javascript" src="tabbedSliders/js/common.js"></script>
 </body>
 </html>
