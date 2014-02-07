@@ -25,6 +25,8 @@ $(function (){
 					$("#formWrapper ul").animate({left: "-199%"}, { duration: 1000, easing: 'easeInOutCirc' });
 					ClearClasses();
 					$(this).parent("LI").addClass("current");
+				} else {
+					console.log("Should not reach");
 				}
 			});
 	});

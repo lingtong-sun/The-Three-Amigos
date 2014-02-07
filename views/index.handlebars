@@ -24,10 +24,19 @@
           <h3 class="formheading">Chats Page</h3>
           <form action="#">
             <div class="leftBlock">
-              <p> This area will contain all active chats </p>
-              <br><br><br><br><br><br><br><br><br><br>
-              <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-              <br><br><br><br><br><br><br><br>
+              <p> Sample chats below - cannot implement w/o db</p>
+              
+              <table class="chatTable">
+                <tr>
+                <td> <img src="tabbedSliders/imgs/smallFace2.jpg" alt="Smiley face"> </td>
+                <td id = "msg"> Chat Dialogue </td>
+                </tr>
+                <tr>
+                <td> <img src="tabbedSliders/imgs/smallFace.jpg" alt="Smiley face"> </td>
+                <td id = "msg"> Chat Dialogue </td>
+                </tr>
+              </table>
+
               <!-- end of leftBlock  --> 
             </div>
             <div class="rightBlock">
@@ -37,7 +46,7 @@
             <!-- end of RightBlock  -->
             </div>
             <div class="newMessageBtn">
-              <input type="image" src="tabbedSliders/imgs/newMsg.png"  />
+              <a href = "/newMsgPage.html"> <input type="image" src="tabbedSliders/imgs/newMsg.png"/> </a>
             </div>
           </form>
         </div>
@@ -47,17 +56,25 @@
           <h3 class="formheading">Friends Page</h3>
           <form action="#">
             <div class="leftBlock">
-              <p> this is the left block </p>
+              <p> Sample friends - cannot implement w/o db</p>
               <!-- end of leftBlock  --> 
+
+              <table class="chatTable">
+                <tr>
+                <td> <img src="tabbedSliders/imgs/smallFace2.jpg" alt="Smiley face"> </td>
+                <td id = "msg"> Conan O'Brian </td>
+                </tr>
+                <tr>
+                <td> <img src="tabbedSliders/imgs/smallFace.jpg" alt="Smiley face"> </td>
+                <td id = "msg"> Brad Pitt </td>
+                </tr>
+              </table>
             </div>
             <div class="rightBlock">
             <div class="message">
-              <label>Message</label>
+              <label>Friends</label>
             </div>
             <!-- end of RightBlock  -->
-            </div>
-            <div class="submitBtn">
-              <input type="image" src="tabbedSliders/imgs/submit.png"  />
             </div>
           </form>
         </div>
@@ -67,15 +84,12 @@
           <h3 class="formheading">Settings Page</h3>
           <form action="#">
             <div class="leftBlock">
-              <p> this is the left block </p>
+              <p> All settings will go here </p>
             </div>
             <div class="rightBlock">
             <div class="message">
               <label>Message</label>
             </div>
-            </div>
-            <div class="submitBtn">
-              <input type="image" src="tabbedSliders/imgs/submit.png"  />
             </div>
           </form>
         </div>

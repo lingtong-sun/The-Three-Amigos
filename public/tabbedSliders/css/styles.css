@@ -275,3 +275,19 @@ BLOCKQUOTE, Q
     height:auto;
     width: 100%;
 }
+
+
+.chatTable th, td
+{
+border: 1px solid black;
+padding:5px;
+}
+.chatTable img
+{
+	height: 90px;
+	width: 70px;
+}
+#msg
+{
+	width: 100%;
+}
