@@ -64,9 +64,9 @@ BLOCKQUOTE, Q
 #nav
 {
 	position:absolute;
-	top:15%;
+	top:40px;
 	width :99%;
-	height: 15%;
+	height: 50px;
 	margin-left: 10px;
 	z-index: 99999;
 
@@ -248,7 +248,6 @@ BLOCKQUOTE, Q
 #chatPage
 {
 	margin-left: 15px;
-	height: 500px;
 	border: 1px solid black;
 }
 
@@ -266,4 +265,13 @@ BLOCKQUOTE, Q
 	left: 202%; 
 	top:0%;
 	border: 1px solid black;
+}
+
+.newMessageBtn {
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    height:auto;
+    width: 100%;
 }
