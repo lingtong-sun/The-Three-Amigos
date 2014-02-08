@@ -59,17 +59,16 @@ BLOCKQUOTE, Q
 {
 	text-align: center;
 	font: normal normal bold 2em/1.3em Georgia;
-	padding: 20px 0;
+	padding: 5px 0;
 }
 #nav
 {
 	position:absolute;
-	top:35%;
-	left:50%;
-	width :500px;
-	margin-left:-115px;
-	margin-top:-100px;
-	z-index: 1000;
+	top:40px;
+	width :99%;
+	height: 50px;
+	margin-left: 10px;
+	z-index: 99999;
 
 	padding-bottom: 12px;
 }
@@ -77,13 +76,15 @@ BLOCKQUOTE, Q
 {
 	text-align: center;
 	margin: 0;
-	padding: 9px 221px 0 0;
 	list-style: none;
+	width:100%;
+	height:100%;
 }
 #nav LI
 {
+	width: 32%;
+	height: 100%;
 	float: left;
-	background: url(../imgs/tableft.png) no-repeat 0 -34px;
 	margin: 0;
 	padding: 0 3px;
 }
@@ -92,16 +93,16 @@ BLOCKQUOTE, Q
 	float: left;
 	display: block;
 	width: 0.1em;
-	background: url(../imgs/tabright.png) no-repeat 100% -34px;
 	padding: 5px 15px 4px 13px;
 	text-decoration: none;
 	font-weight: bold;
-	font-size: 10pt;
+	font-size: 200%;
 	color: #4A4B4A;
 }
 #nav>UL A
 {
 	width: auto;
+	line-height: 120%;
 }
 /*Commented Backslash Hack hides rule from IE5-Mac \*/
 #nav A
@@ -111,52 +112,44 @@ BLOCKQUOTE, Q
 /*End IE5-Mac hack*/
 #nav A:hover
 {
-	color: #FFF;
+
 }
 #nav .current
 {
-	background-position: left top;
-	border-width: 0;
+	border: 5px solid green;
 }
 #nav .current A
 {
-	background-position: 100% 0;
-	color: #FFF;
 }
 #nav LI:hover, #nav LI:hover A
 {
-	background-position: left top;
-	color: #FFF;
 }
 #nav LI:hover A
 {
-	background-position: 100% 0;
 }
 #nav .current-cat A:link, #nav .current-cat A:visited, #nav .current-cat A:visited, #nav .current-cat A:hover
 {
-	color: #FFFFFF;
+
 }
 /*Form*/
 #formWrapper
 {
-	clear: both;
-	width: 680px;
+	margin-top: 5%;
 	overflow: hidden;
 }
 .form H3.formheading
 {
 	font: normal normal bold 1.5em/1.3em Georgia;
-	padding: 20px 0;
+	padding: 20px 5px;
 	color: #C9C9C9;
 }
 #formWrapper UL LI
 {
-	float: left;
-	display: inline;
+	width: 98%;
 }
 #formWrapper UL
 {
-	width: 2050px;
+	width: 99%;
 	left: 0;
 	position: relative;
 }
@@ -167,7 +160,6 @@ BLOCKQUOTE, Q
 .leftBlock
 {
 	width: 300px;
-	float: left;
 }
 .field
 {
@@ -196,7 +188,7 @@ BLOCKQUOTE, Q
 /*Right Block*/
 .rightBlock
 {
-	float: right;
+	float: left;
 	width: 380px;
 }
 .message
@@ -233,7 +225,7 @@ BLOCKQUOTE, Q
 	color: #90AAC0;
 	padding: 9px 0px 12px 9px;
 	overflow: auto;
-		resize: none;
+	resize: none;
 /*resize: none*/
 }
 .submitBtn
@@ -241,4 +233,61 @@ BLOCKQUOTE, Q
 	padding: 10px 0;
 	clear: both;
 	width: 580px;
+}
+.newMessageBtn
+{
+	width: 98%;
+	bottom: 0%;
+	position: absolute;
+}
+.newMessageBtn input
+{
+	width: 100%;
+	max-height:25%;
+}
+#chatPage
+{
+	margin-left: 15px;
+	border: 1px solid black;
+}
+
+#friendsPage
+{
+	position: absolute; 
+	left: 101%; 
+	top:0%;
+	border: 1px solid black;
+}
+
+#settings
+{
+	position: absolute; 
+	left: 202%; 
+	top:0%;
+	border: 1px solid black;
+}
+
+.newMessageBtn {
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    height:auto;
+    width: 100%;
+}
+
+
+.chatTable th, td
+{
+border: 1px solid black;
+padding:5px;
+}
+.chatTable img
+{
+	height: 90px;
+	width: 70px;
+}
+#msg
+{
+	width: 100%;
 }

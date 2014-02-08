@@ -11,111 +11,89 @@
   <h2> Spanglish </h2>
   <div id="nav">
     <ul>
-      <li class="current"> <a href="#" id="contact" title="Chats">Chats</a></li>
-      <li><a href="#" id="quote" title="Request a Quote">Friends</a></li>
-      <li><a href="#" id="demo" title="Request a Demo">Settings</a></li>
+
+      <li class="current"> <a href="#" id="contact">Chats</a></li>
+      <li><a href="#" id="quote">Friends</a></li>
+      <li><a href="#" id="demo">Settings</a></li>
     </ul>
   </div>
+
   <div id="formWrapper">
     <ul>
-      <li>
+      <li id = "chatPage">
         <div class="form">
-        	<h3 class="formheading">Contact Us</h3>
+          <h3 class="formheading">Chats Page</h3>
           <form action="#">
             <div class="leftBlock">
-              <div class="field">
-                <label>Name</label>
-                <input type="text" name="name" class="textfield" />
-              </div>
-              <div class="field">
-                <label>Email</label>
-                <input type="text" name="email" class="textfield" />
-              </div>
-              <div class="field">
-                <label>Subject</label>
-                <input type="text" name="subject" class="textfield" />
-              </div>
+              <p> Sample chats below - cannot implement w/o db</p>
+              
+              <table class="chatTable">
+                <tr>
+                <td> <img src="tabbedSliders/imgs/smallFace2.jpg" alt="Smiley face"> </td>
+                <td id = "msg"> Chat Dialogue </td>
+                </tr>
+                <tr>
+                <td> <img src="tabbedSliders/imgs/smallFace.jpg" alt="Smiley face"> </td>
+                <td id = "msg"> Chat Dialogue </td>
+                </tr>
+              </table>
+
               <!-- end of leftBlock  --> 
             </div>
             <div class="rightBlock">
             <div class="message">
-              <label>Message</label>
-              <div class="tArea">
-                <textarea  class="textarea" cols="18" rows="3"></textarea>
-              </div>
+
+              <label>Chats Div</label>
             </div>
             <!-- end of RightBlock  -->
             </div>
-            <div class="submitBtn">
-              <input type="image" src="tabbedSliders/imgs/submit.png"  />
+            <div class="newMessageBtn">
+              <a href = "/newMsgPage.html"> <input type="image" src="tabbedSliders/imgs/newMsg.png"/> </a>
             </div>
           </form>
         </div>
       </li>
-      <li>
+
+      <li id = "friendsPage">
         <div class="form">
-        	<h3 class="formheading">Request a Quote</h3>
+          <h3 class="formheading">Friends Page</h3>
           <form action="#">
             <div class="leftBlock">
-              <div class="field">
-                <label>Name</label>
-                <input type="text" name="name" class="textfield" />
-              </div>
-              <div class="field">
-                <label>Email</label>
-                <input type="text" name="email" class="textfield" />
-              </div>
-              <div class="field">
-                <label>Subject</label>
-                <input type="text" name="subject" class="textfield" />
-              </div>
+              <p> Sample friends - cannot implement w/o db</p>
               <!-- end of leftBlock  --> 
+
+              <table class="chatTable">
+                <tr>
+                <td> <img src="tabbedSliders/imgs/smallFace2.jpg" alt="Smiley face"> </td>
+                <td id = "msg"> Conan O'Brian </td>
+                </tr>
+                <tr>
+                <td> <img src="tabbedSliders/imgs/smallFace.jpg" alt="Smiley face"> </td>
+                <td id = "msg"> Brad Pitt </td>
+                </tr>
+              </table>
             </div>
             <div class="rightBlock">
             <div class="message">
-              <label>Message</label>
-              <div class="tArea">
-                <textarea  class="textarea" cols="18" rows="3"></textarea>
-              </div>
+              <label>Friends</label>
             </div>
             <!-- end of RightBlock  -->
-            </div>
-            <div class="submitBtn">
-              <input type="image" src="tabbedSliders/imgs/submit.png"  />
             </div>
           </form>
         </div>
       </li>
-      <li>
+      <li id = "settings">
         <div class="form">
-        	<h3 class="formheading">Request a Demo</h3>
+          <h3 class="formheading">Settings Page</h3>
           <form action="#">
             <div class="leftBlock">
-              <div class="field">
-                <label>Name</label>
-                <input type="text" name="name" class="textfield" />
-              </div>
-              <div class="field">
-                <label>Email</label>
-                <input type="text" name="email" class="textfield" />
-              </div>
-              <div class="field">
-                <label>Subject</label>
-                <input type="text" name="subject" class="textfield" />
-              </div>
-              <!-- end of leftBlock  --> 
+              <p> All settings will go here </p>
             </div>
             <div class="rightBlock">
             <div class="message">
               <label>Message</label>
-              <div class="tArea">
-                <textarea class="textarea" cols="18" rows="3"></textarea>
-              </div>
+
             </div>
-            <!-- end of RightBlock  -->
-            </div>
-            <div class="submitBtn">
-              <input type="image" src="tabbedSliders/imgs/submit.png"  />
             </div>
           </form>
         </div>
