@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="tabbedSliders/css/styles.css" rel="stylesheet" type="text/css" />
+
+<title>Spanglish</title>
+</head>
+<body>
+<div id="container">
+  <h2> Spanglish </h2>
+  <div id="nav">
+    <ul>
+
+      <li class="current"> <a href="#" id="contact">Chats</a></li>
+      <li><a href="#" id="quote">Friends</a></li>
+      <li><a href="#" id="demo">Settings</a></li>
+    </ul>
+  </div>
+
+  <div id="formWrapper">
+    <ul>
+      <li id = "chatPage">
+        <div class="form">
+          <h3 class="formheading">Chats Page</h3>
+          <form action="#">
+            <div class="leftBlock">
+              <p> Sample chats below - cannot implement w/o db</p>
+              
+              <table class="chatTable">
+                <tr>
+                <td> <img src="tabbedSliders/imgs/smallFace2.jpg" alt="Smiley face"> </td>
+                <td id = "msg"> Chat Dialogue </td>
+                </tr>
+                <tr>
+                <td> <img src="tabbedSliders/imgs/smallFace.jpg" alt="Smiley face"> </td>
+                <td id = "msg"> Chat Dialogue </td>
+                </tr>
+              </table>
+
+              <!-- end of leftBlock  --> 
+            </div>
+            <div class="rightBlock">
+            <div class="message">
+
+              <label>Chats Div</label>
+            </div>
+            <!-- end of RightBlock  -->
+            </div>
+            <div class="newMessageBtn">
+              <a href = "newmsg.html"> <input type="image" src="tabbedSliders/imgs/newMsg.png"/> </a>
+            </div>
+          </form>
+        </div>
+      </li>
+
+      <li id = "friendsPage">
+        <div class="form">
+          <h3 class="formheading">Friends Page</h3>
+          <form action="#">
+            <div class="leftBlock">
+              <p> Sample friends - cannot implement w/o db</p>
+              <!-- end of leftBlock  --> 
+
+              <table class="chatTable">
+                <tr>
+                <td> <img src="tabbedSliders/imgs/smallFace2.jpg" alt="Smiley face"> </td>
+                <td id = "msg"> Conan O'Brian </td>
+                </tr>
+                <tr>
+                <td> <img src="tabbedSliders/imgs/smallFace.jpg" alt="Smiley face"> </td>
+                <td id = "msg"> Brad Pitt </td>
+                </tr>
+              </table>
+            </div>
+            <div class="rightBlock">
+            <div class="message">
+              <label>Friends</label>
+            </div>
+            <!-- end of RightBlock  -->
+            </div>
+          </form>
+        </div>
+      </li>
+      <li id = "settings">
+        <div class="form">
+          <h3 class="formheading">Settings Page</h3>
+          <form action="#">
+            <div class="leftBlock">
+              <p> All settings will go here </p>
+            </div>
+            <div class="rightBlock">
+            <div class="message">
+              <label>Message</label>
+
+            </div>
+            </div>
+          </form>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<script type="text/javascript" src="tabbedSliders/js/jquery-1.4.4.min.js"></script> 
+<script type="text/javascript" src="tabbedSliders/js/easing.js"></script> 
+<script type="text/javascript" src="tabbedSliders/js/common.js"></script>
+</body>
+</html>
