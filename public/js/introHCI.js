@@ -10,6 +10,16 @@ $(document).ready(function() {
  */
 function initializePage() {
 	$("#settingform").submit(formSubmit);
+	$("#sendmessage").click(newMessage);
+}
+
+function newMessage(e) {
+	e.preventDefault();
+	console.log("NEW MSG");
+	var form = $("#messageform");
+	console.log(form.serialize());
+	$.post(form.attr("action"), form.serialize(), displayResults);
+	
 }
 
 function formSubmit(e){

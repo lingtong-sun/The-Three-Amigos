@@ -16,6 +16,7 @@ var project = require('./routes/project');
 var chat = require('./routes/chat');
 var conversation = require('./routes/conversation');
 var setting = require("./routes/changeSettings");
+var sendmessage = require("./routes/sendMessage");
 
 var app = express();
 
@@ -45,7 +46,8 @@ app.get('/', index.view);
 app.get('/chat', chat.view);
 app.get('/conversation/:name', conversation.viewConversation);
 
-app.post("/chat/changeSettings", setting.changeSettings)
+app.post("/chat/changeSettings", setting.changeSettings);
+app.post("/chat/sendMessage", sendmessage.send);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
