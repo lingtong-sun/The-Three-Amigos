@@ -45,7 +45,8 @@
 					    if (response.status === 'connected') {
 					      // In this case, we're handling the situation where they 
 					      // has logged in to the app already.
-					      window.location.replace("chat");
+
+					      //window.location.replace("chat");
 					    }
 			  		});
 				};
@@ -63,7 +64,28 @@
 					FB.login(function(response) {
 						if (response.authResponse) {
 	    					// the user has chosen to login via FB
-	    					window.location.replace("chat");
+
+	    					FB.api('/me/friends', 
+                				function(response) {
+                					if(response.data) {
+                						localStorage.clear();
+                  						var num = 0;
+                   						$.each(response.data,function(index,friend) {
+                   							var friend = new String(friend.name);
+                   							var friendNumber = new String('friend' + num);
+                      						//console.log(friendNumber + ' maps:' + friend.name);
+                      						num = num + 1;
+                      						localStorage.setItem(friendNumber, friend);
+                      						//console.log(localStorage.length);
+                      						console.log(localStorage.getItem(friendNumber));
+                    					});
+                    					var friendCount = new String(localStorage.length)
+                   						localStorage.setItem('numFriends', friendCount);
+                    					window.location.replace("chat");
+                  					} else {
+                    					console.log("Error!");
+                  					}
+          					});
 	   					 } else {
 	   					 	// the user has cancelled the login
 						}

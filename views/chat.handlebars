@@ -26,8 +26,8 @@
       <![endif]-->
     </head>
     <body>
-      <div id="fb-root"></div>
-<div id="fb-root"></div>
+    <div id="fb-root"></div>
+    <div id="fb-root"></div>
     <script>
       window.fbAsyncInit = function() {
         FB.init({
@@ -35,6 +35,31 @@
           status     : true,
           xfbml      : true
         });
+
+        FB.Event.subscribe('auth.authResponseChange', function(response) {
+          // Here we specify what we do with the response anytime this event occurs. 
+          if (response.status === 'connected') {
+            // The response object is returned with a status field that lets the app know the current
+            // login status of the person. In this case, we're handling the situation where they 
+            // have logged in to the app.
+            testAPI();
+          } 
+        });
+
+        function testAPI() {
+          FB.api('/me', function(response) {
+            console.log('Good to see you, ' + response.name + '.');
+            var numFriends = localStorage.getItem('numFriends');
+
+            for (var i = 0; i < numFriends; i++) {
+              var friendTag = new String('friend' + i);
+              var friendName = localStorage.getItem(friendTag);
+              console.log(friendName);
+            };
+          });
+
+          
+        }
       };
 
       (function(d, s, id){
