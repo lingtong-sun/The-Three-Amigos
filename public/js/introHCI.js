@@ -9,5 +9,17 @@ $(document).ready(function() {
  * Function that is called when the document is ready.
  */
 function initializePage() {
-	// add any functionality and listeners you want here
+	$("#settingform").submit(formSubmit);
+}
+
+function formSubmit(e){
+	e.preventDefault();
+	console.log("SUBMIT FORM");
+	var form = $("#settingform");
+	console.log(form.serialize());
+	$.post(form.attr("action"), form.serialize(), displayResults);
+}
+
+function displayResults (result) {
+
 }
