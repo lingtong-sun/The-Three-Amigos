@@ -4,14 +4,14 @@
 			"to": "Doug Engelbart",
 			"from": "Emma Guth",
 			"time" : "10:30pm",
-			"message": "Hello, I love you",
+			"message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae suscipit ante. Maecenas non massa vulputate, volutpat elit quis, aliquet augue. Quisque dui eros, posuere ac ante vitae, elementum consequat felis. Nunc ornare vestibulum enim sed interdum.",
 			"image" : "http://placekitten.com/150/150"		
 		},
 		{
 			"to": "Emma Guth",
 			"from": "Doug Engelbart",
 			"time" : "10:35pm",
-			"message": "omg, I love you too",
+			"message": "Nam faucibus ultricies libero, sed lacinia odio venenatis a. Mauris risus turpis, tempor id ullamcorper nec, ullamcorper id diam.",
 			"image" : "http://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Douglas_Engelbart_in_2008.jpg/972px-Douglas_Engelbart_in_2008.jpg"			
 		}
 	]

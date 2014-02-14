@@ -110,7 +110,7 @@
           <td rowspan=2><img class="img-responsive img-circle" src="{{imageURL}}"/></td>
           <td><a href="conversation/{{name}}">{{name}}</a></td>
         </tr>
-        <tr><td>{{description}}<td></tr>
+        <tr class="bottom"><td>{{description}}<td></tr>
 
       {{/each}}
       </table>
@@ -119,9 +119,9 @@
     <div class="tab-pane" id="friends">
       <table>
       {{#each friends}}
-        <tr class="friend">
+        <tr class="friend bottom">
           <td><img class="img-responsive img-circle" src="{{imageURL}}"/></td>
-          <td><a href="#">{{name}}</a></td>
+          <td><a href="conversation/{{name}}">{{name}}</a></td>
         </tr>
 
       {{/each}}
