@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<meta charset="utf-8">
+	<title>Spanglish</title>
+	<meta name="description" content=""/>
+
+	<!-- Loading Bootstrap -->
+	<link href="../flat-ui/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="../css/spanglish.css" rel="stylesheet">
+
+
+	<!-- Loading Flat UI -->
+	<link href="../flat-ui/css/flat-ui.css" rel="stylesheet">
+	<link href="../flat-ui/css/demo.css" rel="stylesheet">
+
+	<link rel="shortcut icon" href="../flat-ui/flat-ui/images/favicon.ico">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+	    <!--[if lt IE 9]>
+	      <script src="flat-ui/js/html5shiv.js"></script>
+	      <script src="flat-ui/js/respond.min.js"></script>
+	      <![endif]-->
+	  </head>
+	  <body>
+
+	  	<div class="container-fluid">
+	  		<div class="back-button">
+	  			<a href="../chat"><span class="glyphicon glyphicon-chevron-left"></span></a>
+	  		</div>
+
+	  		
+	  		<div class="convo-header">
+		  		<h4> {{name}} </h4>
+	  		</div>
+
+	  		<div class="convo">
+	  			{{#each data.conversation}}
+	  			<div class="message well">
+	  				<img class="img-circle convo-pic" src="{{image}}"/>
+	  				<p>{{message}}</p>
+	  				<div class="from-date">
+		  				<p>{{from}}</p>
+		  				<p>{{time}}</p>
+	  				</div>
+	  			</div>
+	  			{{/each}}
+	 		</div>
+
+	  		<div class="input-group">
+	  			<input type="text" class="form-control">
+	  			<span class="input-group-btn">
+	  				<button class="btn btn-default" type="button">Send</button>
+	  			</span>
+	  		</div><!-- /input-group -->
+	
+	  	</div>
+
+	  </body>
+	  </html>
