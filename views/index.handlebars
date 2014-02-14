@@ -10,6 +10,8 @@
 
   <!-- Loading Bootstrap -->
   <link href="flat-ui/bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="css/spanglish.css" rel="stylesheet">
+
 
   <!-- Loading Flat UI -->
   <link href="flat-ui/css/flat-ui.css" rel="stylesheet">
@@ -24,11 +26,10 @@
       <![endif]-->
     </head>
     <body>
-
-      <!-- Run FB SDK and Login Script -->
-    <div id="fb-root"></div>
-    <script>
+      <div id="fb-root"></div>
+      <script>
       window.fbAsyncInit = function() {
+
       FB.init({
         appId      : '1452060145024625',
         status     : true, // check login status
@@ -104,144 +105,159 @@
       }
     </script>
 
-      <div class="container-fluid">
+        <div class="container-fluid">
 
-       <!-- Nav tabs -->
-       <ul class="nav nav-pills nav-justified">
-        <li class="active"><a href="#chats" data-toggle="tab">Chats <span class="fui-chat"></span></a></li>
-        <li><a href="#friends" data-toggle="tab">Friends <span class="fui-user"></span></a></li>
-        <li><a href="#settings" data-toggle="tab">Settings <span class="fui-gear"></span></a></li>
-      </ul>
+   <!-- Nav tabs -->
+   <ul class="nav nav-pills nav-justified">
+    <li class="active"><a class="col-xs-4" href="#chats" data-toggle="tab"><span class="fui-chat"></span></a></li>
+    <li><a class="col-xs-4" href="#friends" data-toggle="tab"><span class="fui-user"></span></a></li>
+    <li><a class="col-xs-4" href="#settings" data-toggle="tab"><span class="fui-gear"></span></a></li>
+  </ul>
 
-      <!-- Tab panes -->
-      <div class="tab-content">
-        <div class="tab-pane active" id="chats">
-          <p> hello world</p>
-        </div>
-        
-        <div class="tab-pane" id="friends">
-          <p> hello friends</p>
-        </div>
-        
-        <div class="tab-pane" id="settings">
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div class="tab-pane active" id="chats">
+      <table>
+      {{#each friends}}
+        <tr class="friend">
+          <td rowspan=2><img class="img-responsive img-circle" src="{{imageURL}}"/></td>
+          <td><a href="#">{{name}}</a></td>
+        </tr>
+        <tr><td>{{description}}<td></tr>
 
-          <form class="form-horizontal">
-            <fieldset>
+      {{/each}}
+      </table>
+    </div>
 
-              <!-- Form Name -->
-              <legend>Form Name</legend>
+    <div class="tab-pane" id="friends">
+      <table>
+      {{#each friends}}
+        <tr class="friend">
+          <td><img class="img-responsive img-circle" src="{{imageURL}}"/></td>
+          <td><a href="#">{{name}}</a></td>
+        </tr>
 
-              <!-- Text input-->
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="name">Name:</label>  
-                <div class="col-md-6">
-                  <input id="name" name="name" type="text" placeholder="" class="form-control input-md" required="">
+      {{/each}}
+      </table>
+    </div>
 
+    <div class="tab-pane" id="settings">
+      <div class="info">
+        <h3> Emma Guth </h3>
+        <img class="img-circle" src="http://placekitten.com/150/150"/>
+      </div>
+      <form class="form-horizontal">
+        <fieldset>
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="name">Change Name</label>  
+            <div class="col-md-6">
+              <input id="name" name="name" type="text" placeholder="" class="form-control input-md" required="">
+
+            </div>
+          </div>
+
+          <!-- Password input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="password">Change Password</label>
+            <div class="col-md-6">
+              <input id="password" name="password" type="password" placeholder="" class="form-control input-md" required="">
+
+            </div>
+          </div>
+
+          <!-- Select Basic -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="sendlang">Send Language</label>
+            <div class="col-md-6">
+              <select id="sendlang" name="sendlang" class="form-control">
+                <option value="1">English</option>
+                <option value="2">Spanish</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="recievelang">Recieve Language</label>
+            <div class="col-md-6">
+              <select id="recievelang" name="recievelang" class="form-control">
+                <option value="1">English</option>
+                <option value="2">Spanish</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Button -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="save"></label>
+            <div class="col-md-4">
+              <button id="save" name="save" class="btn btn-inverse">Save Changes</button>
+            </div>
+          </div>
+
+        </fieldset>
+      </form>
+
+    </div>
+
+    <a href="#fakelink" class="btn btn-block btn-lg btn-primary" data-toggle="modal" data-target="#new-msg">New Message <span class="fui-mail"></span>
+    </a>
+
+    <div class="modal fade bs-modal-sm" id="new-msg">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-body">
+            <form class="form-horizontal">
+              <fieldset>
+
+                <!-- Form Name -->
+
+                <!-- Text input-->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="recipient">Recipient</label>  
+                  <div class="col-md-6">
+                    <input id="recipient" name="recipient" type="text" placeholder="" class="form-control input-md" required="">
+                  </div>
+>>>>>>> b516b440ed5e2a460c647c9ac6f38a4ffc0b36ad
                 </div>
-              </div>
 
-              <!-- Password input-->
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="password">Password</label>
-                <div class="col-md-6">
-                  <input id="password" name="password" type="password" placeholder="" class="form-control input-md" required="">
-
+                <!-- Textarea -->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="message">Message</label>
+                  <div class="col-md-4">                     
+                    <textarea class="form-control" id="message" name="message"></textarea>
+                  </div>
                 </div>
-              </div>
-
-              <!-- Select Basic -->
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="sendlang">Send Language</label>
-                <div class="col-md-6">
-                  <select id="sendlang" name="sendlang" class="form-control">
-                    <option value="1">English</option>
-                    <option value="2">Spanish</option>
-                  </select>
+                <div class="centered">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Send message</button>
                 </div>
-              </div>
-
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="recievelang">Recieve Language</label>
-                <div class="col-md-6">
-                  <select id="recievelang" name="recievelang" class="form-control">
-                    <option value="1">English</option>
-                    <option value="2">Spanish</option>
-                  </select>
-                </div>
-              </div>
-
-              <!-- Button -->
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="save"></label>
-                <div class="col-md-4">
-                  <button id="save" name="save" class="btn btn-inverse">Save Changes</button>
-                </div>
-              </div>
-
-            </fieldset>
-          </form>
-
-        </div>
-
-        <a href="#fakelink" class="btn btn-block btn-lg btn-primary" data-toggle="modal" data-target="#new-msg">New Message <span class="fui-mail"></span>
-        </a>
-
-        <div class="modal fade bs-modal-sm" id="new-msg">
-          <div class="modal-dialog">
-            <div class="modal-content">
-
-              <div class="modal-body">
-                <form class="form-horizontal">
-                  <fieldset>
-
-                    <!-- Form Name -->
-
-                    <!-- Text input-->
-                    <div class="form-group">
-                      <label class="col-md-4 control-label" for="recipient">Recipient:</label>  
-                      <div class="col-md-6">
-                        <input id="recipient" name="recipient" type="text" placeholder="" class="form-control input-md" required="">
-
-                      </div>
-                    </div>
-
-                    <!-- Textarea -->
-                    <div class="form-group">
-                      <label class="col-md-4 control-label" for="message">Message:</label>
-                      <div class="col-md-4">                     
-                        <textarea class="form-control" id="message" name="message"></textarea>
-                      </div>
-                    </div>
-                    <div class="centered">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Send message</button>
-                    </div>
-                  </fieldset>
-                </form>
+              </fieldset>
+            </form>
 
 
-              </div>
+          </div>
 
-            </div><!-- /.modal-content -->
-          </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
 
 
-        <!-- Load JS here for greater good =============================-->
-        <script src="flat-ui/js/jquery-1.8.3.min.js"></script>
-        <script src="flat-ui/js/jquery-ui-1.10.3.custom.min.js"></script>
-        <script src="flat-ui/js/jquery.ui.touch-punch.min.js"></script>
-        <script src="flat-ui/js/bootstrap.min.js"></script>
-        <script src="flat-ui/js/bootstrap-select.js"></script>
-        <script src="flat-ui/js/bootstrap-switch.js"></script>
-        <script src="flat-ui/js/flatui-checkbox.js"></script>
-        <script src="flat-ui/js/flatui-radio.js"></script>
-        <script src="flat-ui/js/jquery.tagsinput.js"></script>
-        <script src="flat-ui/js/jquery.placeholder.js"></script>
-        <script src="flat-ui/js/jquery.stacktable.js"></script>
-        <script src="http://vjs.zencdn.net/4.3/video.js"></script>
-        <script src="flat-ui/js/application.js"></script>
-      </body>
-      </html>
-
+    <!-- Load JS here for greater good =============================-->
+    <script src="flat-ui/js/jquery-1.8.3.min.js"></script>
+    <script src="flat-ui/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="flat-ui/js/jquery.ui.touch-punch.min.js"></script>
+    <script src="flat-ui/js/bootstrap.min.js"></script>
+    <script src="flat-ui/js/bootstrap-select.js"></script>
+    <script src="flat-ui/js/bootstrap-switch.js"></script>
+    <script src="flat-ui/js/flatui-checkbox.js"></script>
+    <script src="flat-ui/js/flatui-radio.js"></script>
+    <script src="flat-ui/js/jquery.tagsinput.js"></script>
+    <script src="flat-ui/js/jquery.placeholder.js"></script>
+    <script src="flat-ui/js/jquery.stacktable.js"></script>
+    <script src="http://vjs.zencdn.net/4.3/video.js"></script>
+    <script src="flat-ui/js/application.js"></script>
+  </body>
+  </html>

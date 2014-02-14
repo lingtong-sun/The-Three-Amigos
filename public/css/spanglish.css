@@ -1,0 +1,15 @@
+.friend img{
+	width: 50px;
+	height: 50px;
+	padding-bottom: 5px;
+	border-bottom: 1px;
+}
+
+.info {
+	text-align: center;
+}
+
+.friend tr{
+	border-bottom: 1px;
+
+}

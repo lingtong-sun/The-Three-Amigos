@@ -4191,8 +4191,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 @media (min-width: 768px) {
   .nav-tabs.nav-justified > li {
-    display: table-cell;
-    width: 1%;
+    
   }
   .nav-tabs.nav-justified > li > a {
     margin-bottom: 0;
