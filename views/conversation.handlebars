@@ -28,37 +28,43 @@
 	  <body>
 
 	  	<div class="container-fluid">
-	  		<div class="back-button">
-	  			<a href="../chat"><span class="glyphicon glyphicon-chevron-left"></span></a>
-	  		</div>
-
 	  		
-	  		<div class="convo-header">
-		  		<h4> {{name}} </h4>
-	  		</div>
+	  		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	  			<div class="container-fluid back-button">
+	  				<p><a href="../chat"><span class="glyphicon glyphicon-chevron-left"></span></a> {{name}} </p>
+	  			</div>
+	  		</nav>
+	  		
+
 
 	  		<div class="convo">
 	  			{{#each data.conversation}}
 	  			<div class="message well">
 	  				<img class="img-circle convo-pic" src="{{image}}"/>
-	  				
-	  				<p>{{message}}</p>
 	  				<div class="from-date">
-		  				<p>{{from}}</p>
-		  				<p>{{time}}</p>
+	  					<p>{{from}}</p>
+	  					<p>{{time}}</p>
 	  				</div>
-	  			
+	  				
+	  				<p class="msg-text">{{message}}</p>
+
 	  			</div>
 	  			{{/each}}
-	 		</div>
+	  		</div>
 
-	  		<div class="input-group">
-	  			<input type="text" class="form-control">
-	  			<span class="input-group-btn">
-	  				<button class="btn btn-default" type="button">Send</button>
-	  			</span>
-	  		</div><!-- /input-group -->
-	
+	  		<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+	  			<div class="container-fluid">
+	  				<div class="input-group">
+	  					<input type="text" class="form-control">
+	  					<span class="input-group-btn">
+	  						<button class="btn btn-default" type="button">Send</button>
+	  					</span>
+	  				</div><!-- /input-group -->
+	  			</div>
+	  		</nav>
+
+	  		
+
 	  	</div>
 
 	  </body>
