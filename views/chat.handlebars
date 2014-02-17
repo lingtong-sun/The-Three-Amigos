@@ -82,10 +82,10 @@
       <div class="container-fluid">
 
        <!-- Nav tabs -->
-       <ul class="nav nav-pills nav-justified">
-        <li class="active"><a class="col-xs-4 navbar-btn" href="#chats" data-toggle="tab"><span class="fui-chat"></span></a></li>
-        <li><a class="col-xs-4 navbar-btn" href="#friends" data-toggle="tab"><span class="glyphicon glyphicon-globe"></span></a></li>
-        <li><a class="col-xs-4 navbar-btn" href="#settings" data-toggle="tab"><span class="fui-gear"></span></a></li>
+       <ul class="nav nav-pills nav-justified navbar-btn">
+        <li class="active"><a class="col-xs-4" href="#chats" data-toggle="tab"><span class="fui-chat"></span></a></li>
+        <li><a class="col-xs-4" href="#friends" data-toggle="tab"><span class="glyphicon glyphicon-globe"></span></a></li>
+        <li><a class="col-xs-4" href="#settings" data-toggle="tab"><span class="fui-gear"></span></a></li>
       </ul>
 
     </div>
@@ -100,7 +100,7 @@
       <table>
         {{#each friends}}
         <tr class="friend">
-          <td rowspan=2><img class="img-responsive img-circle" src="{{imageURL}}"/></td>
+          <td class="pic" rowspan=2><img class="img-responsive img-circle" src="{{imageURL}}"/></td>
           <td><a href="conversation/{{name}}">{{name}}</a></td>
         </tr>
         <tr class="bottom"><td>{{description}}<td></tr>
@@ -121,7 +121,7 @@
     <table>
       {{#each friends}}
       <tr class="friend bottom">
-        <td><img class="img-responsive img-circle" src="{{imageURL}}"/></td>
+        <td class="pic"><img class="img-responsive img-circle" src="{{imageURL}}"/></td>
         <td><a href="conversation/{{name}}">{{name}}</a></td>
       </tr>
       {{/each}}
@@ -193,7 +193,7 @@
   <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
     <div class="container-fluid">
 
-      <a href="#fakelink" class="btn btn-block btn-lg btn-primary" data-toggle="modal" data-target="#new-msg">New Message <span class="fui-mail"></span>
+      <a href="#fakelink" class="btn btn-block btn-lg btn-primary navbar-btn" data-toggle="modal" data-target="#new-msg">New Message <span class="fui-mail"></span>
       </a>
 
     </div>

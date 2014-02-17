@@ -6,8 +6,17 @@
 	margin-right:10px;
 }
 
-#friends table {
+.pic {
+	width: 55px;
+}
+
+#friends table, #chats table {
 	width: 100%
+}
+
+.bottom td {
+	font-size: 14px;
+	color: #6b6b6b;
 }
 
 .info {
