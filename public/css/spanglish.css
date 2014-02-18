@@ -19,7 +19,8 @@
 }
 
 .top-buttons .nav-pills {
-	margin-bottom: 6px;
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
 
 .testing {
@@ -89,4 +90,5 @@ body {
 
 .navbar-default {
 	background-color: #dedede;
+	opacity:0.95;
 }
