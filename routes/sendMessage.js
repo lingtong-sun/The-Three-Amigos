@@ -2,10 +2,16 @@
 
 exports.send = function(req, res){
   console.log(req['body']);
-
-  translate(req['body']['message']);
+  if (verifyUsers()) {
+    translate(req['body']['message']);  
+  } 
+  //send the message to db
 };
 
+function verifyUsers() {
+
+  return true;
+}
 
 var MsTranslator = require('mstranslator');
 var client = new MsTranslator({client_id:"spanglish147", 
@@ -24,6 +30,8 @@ function translate(source) {
   		console.log(keys.access_token);
   		client.translate(params, function(err, data) {
    	   		console.log(data);
+
+          //send the message into the database
   		});
 	});
 }

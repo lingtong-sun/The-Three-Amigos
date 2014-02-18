@@ -16,4 +16,12 @@ function initializePage() {
 function sendMessage(e) {
 	e.preventDefault();
 	var textbox = $("#messagetext");
+	console.log("SEND MESSAGE");
+	var params = "recipient=" + "" + "&message="+textbox.val();
+	console.log(params);
+	$.post("/chat/sendMessage", params, displayResults);
+}
+
+function displayResults(results) {
+
 }
