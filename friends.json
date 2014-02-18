@@ -29,6 +29,16 @@
 			"name": "Allen Newell",
 			"description": "Really into psychology",
 			"imageURL": "http://www.nap.edu/html/biomems/photo/anewell.JPG"
+		},
+		{
+			"name": "Allen Newell2",
+			"description": "Really into psychology",
+			"imageURL": "http://www.nap.edu/html/biomems/photo/anewell.JPG"
+		},
+		{
+			"name": "Allen Newell3",
+			"description": "Really into psychology",
+			"imageURL": "http://www.nap.edu/html/biomems/photo/anewell.JPG"
 		}
 	]
 }

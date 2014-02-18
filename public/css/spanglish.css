@@ -14,7 +14,19 @@
 	width: 100%
 }
 
-.bottom td {
+.convo-link{
+	cursor: pointer;
+}
+
+.top-buttons .nav-pills {
+	margin-bottom: 6px;
+}
+
+.testing {
+	padding: 2px;
+}
+
+.description {
 	font-size: 14px;
 	color: #6b6b6b;
 }
@@ -25,7 +37,6 @@
 
 .bottom {
 	border-bottom: 1px solid #d3d3d3;
-
 }
 
 .convo-pic {
@@ -72,4 +83,10 @@
 body { 
 	padding-top: 70px; 
 	padding-bottom: 70px; 
+	background-image:url('../images/subtle_zebra_3d.png');
+	background-repeat:repeat;
+}
+
+.navbar-default {
+	background-color: #dedede;
 }

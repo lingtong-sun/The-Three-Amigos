@@ -10,12 +10,13 @@
 
   <!-- Loading Bootstrap -->
   <link href="flat-ui/bootstrap/css/bootstrap.css" rel="stylesheet">
-  <link href="css/spanglish.css" rel="stylesheet">
-
 
   <!-- Loading Flat UI -->
   <link href="flat-ui/css/flat-ui.css" rel="stylesheet">
   <link href="flat-ui/css/demo.css" rel="stylesheet">
+
+  <link href="css/spanglish.css" rel="stylesheet">
+
 
   <link rel="shortcut icon" href="flat-ui/flat-ui/images/favicon.ico">
 
@@ -78,8 +79,8 @@
   <div class="container-fluid">
 
 
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container-fluid">
+    <nav class="navbar navbar-default navbar-fixed-top top-buttons" role="navigation">
+      <div class="container-fluid testing">
 
        <!-- Nav tabs -->
        <ul class="nav nav-pills nav-justified navbar-btn">
@@ -99,12 +100,11 @@
     <div class="tab-pane active" id="chats">
       <table>
         {{#each friends}}
-        <tr class="friend">
+        <tr class="friend convo-link" href="/conversation/{{name}}">
           <td class="pic" rowspan=2><img class="img-responsive img-circle" src="{{imageURL}}"/></td>
-          <td><a href="conversation/{{name}}">{{name}}</a></td>
+          <td>{{name}}</td>
         </tr>
-        <tr class="bottom"><td>{{description}}<td></tr>
-
+        <tr class="bottom"><td class="description">{{description}}<td></tr>
         {{/each}}
       </table>
     </div>
@@ -120,9 +120,9 @@
 
     <table>
       {{#each friends}}
-      <tr class="friend bottom">
+      <tr class="friend bottom convo-link" href="conversation/{{name}}">
         <td class="pic"><img class="img-responsive img-circle" src="{{imageURL}}"/></td>
-        <td><a href="conversation/{{name}}">{{name}}</a></td>
+        <td>{{name}}</td>
       </tr>
       {{/each}}
     </table>
@@ -257,6 +257,8 @@
   <script src="http://vjs.zencdn.net/4.3/video.js"></script>
   <script src="flat-ui/js/application.js"></script>
   <script src="/js/introHCI.js"></script>
+  <script src="/js/clickable.js"></script>
+
 </body>
 </html>
 
