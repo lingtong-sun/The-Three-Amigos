@@ -26,6 +26,7 @@
 	      <![endif]-->
 </head>
     <body>
+    	<div class = "landingContainer">
 	    	<div id="fb-root"></div>
 	      	<script>
 		    	window.fbAsyncInit = function() {
@@ -46,7 +47,7 @@
 					      // In this case, we're handling the situation where they 
 					      // has logged in to the app already.
 
-					      //window.location.replace("chat");
+					      window.location.replace("chat");
 					    }
 			  		});
 				};
@@ -92,14 +93,23 @@
 					});
 				}
 
+				$('#help').popover.onclick('toggle');
+
 			</script>
+				<div class = "loginBox">
+					<div class = "title">
+						<h1> Spanglish </h1>
+						<h6> Learn with Friends </h6>
+					</div>
 
-			<button class="btn btn-inverse" id="login" type="button" onclick ="executeLogin()">Log In</button>
+					<hr>
 
-			<p id = "loginReminder">
-				Login with Facebook to Continue
-			</p>
+					<button class="btn btn-inverse" type="button" onclick ="executeLogin()">Log In</button>
 
+					
+				</div>
+		</div>
+			
 
 	    <!-- Load JS here for greater good =============================-->
 	    <script src="flat-ui/js/jquery-1.8.3.min.js"></script>
