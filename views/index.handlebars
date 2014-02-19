@@ -69,6 +69,8 @@
 	    					FB.api('/me/friends', 
                 				function(response) {
                 					if(response.data) {
+                						
+                						// functionality to store the friends
                 						localStorage.clear();
                   						var num = 0;
                    						$.each(response.data,function(index,friend) {
@@ -82,6 +84,8 @@
                     					});
                     					var friendCount = new String(localStorage.length)
                    						localStorage.setItem('numFriends', friendCount);
+
+                   						// move to a new page
                     					window.location.replace("chat");
                   					} else {
                     					console.log("Error!");
