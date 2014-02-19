@@ -36,20 +36,6 @@
 			        cookie     : true, // enable cookies to allow the server to access the session
 			        xfbml      : true  // parse XFBML
 	      			});
-
-				  	// Here we subscribe to the auth.authResponseChange JavaScript event. This event is fired
-				  	// for any authentication related change, such as login, logout or session refresh. This means that
-				  	// whenever someone who was previously logged out tries to log in again, the correct case below 
-				 	// will be handled. 
-				    FB.Event.subscribe('auth.authResponseChange', function(response) {
-					    // Here we specify what we do with the response anytime this event occurs. 
-					    if (response.status === 'connected') {
-					      // In this case, we're handling the situation where they 
-					      // has logged in to the app already.
-
-					      window.location.replace("chat");
-					    }
-			  		});
 				};
 
 				// Load the SDK asynchronously
@@ -62,6 +48,20 @@
 				}(document));
 
 				function executeLogin() {
+					// Here we subscribe to the auth.authResponseChange JavaScript event, and specifically check if the
+					// user is already logged in. In the case that the user has logged in and we still have the access
+					// cookie, we redirect to the homepage.
+				    FB.Event.subscribe('auth.authResponseChange', function(response) {
+					    // Here we specify what we do with the response anytime this event occurs. 
+					    if (response.status === 'connected') {
+					      // In this case, we're handling the situation where they 
+					      // have logged in to the app already.
+
+					      window.location.replace("chat");
+					    }
+			  		});
+
+				    // If the user has not logged in, provide the login prompt
 					FB.login(function(response) {
 						if (response.authResponse) {
 	    					// the user has chosen to login via FB
@@ -92,8 +92,6 @@
 						}
 					});
 				}
-
-				$('#help').popover.onclick('toggle');
 
 			</script>
 				<div class = "loginBox">
