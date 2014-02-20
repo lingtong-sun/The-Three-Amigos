@@ -5,17 +5,14 @@ var UserSchema = new Mongoose.Schema({
 	"_id" : false,
 	"facebook_id": Number,
 	"name" : String,
-	"date_joined" : { type: Date, default: Date.now },
 	"send_language" : String,
 	"receive_language" : String,
-	"new_user": Boolean,
-	"image_source" : String
+	"image" : String
 });
 
 var FriendSchema = new Mongoose.Schema({
 	"user_one" : { type: Number, ref: 'User' },
-	"user_two" : { type: Number, ref: 'User' },
-	"friends_since" : { type: Date, default: Date.now }
+	"user_two" : { type: Number, ref: 'User' }
 });
 
 var MessageSchema = new Mongoose.Schema({
@@ -27,8 +24,8 @@ var MessageSchema = new Mongoose.Schema({
 });
 
 
-exports.Project = Mongoose.model('User', UserSchema);
-exports.Project = Mongoose.model('Friend', FriendSchema);
-exports.Project = Mongoose.model('Message', MessageSchema);
+exports.User = Mongoose.model('User', UserSchema);
+exports.Friend = Mongoose.model('Friend', FriendSchema);
+exports.Message = Mongoose.model('Message', MessageSchema);
 
 

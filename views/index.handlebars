@@ -57,6 +57,9 @@
 					      // In this case, we're handling the situation where they 
 					      // have logged in to the app already.
 
+					      console.log("running through top call");
+					      getFriends();
+
 					      window.location.replace("chat");
 					    }
 			  		});
@@ -66,35 +69,38 @@
 						if (response.authResponse) {
 	    					// the user has chosen to login via FB
 
-	    					FB.api('/me/friends', 
+	    					console.log("running through bottom call");
+	    					saveFriends();
+
+	   					 } else {
+	   					 	// the user has cancelled the login
+						}
+					});
+
+					function saveFriends() {
+						FB.api('/me', function(response) { console.log("Welcome, " + response.name + "! We are saving your friend information")});
+
+						FB.api('/me/friends', 
                 				function(response) {
                 					if(response.data) {
                 						
-                						// functionality to store the friends
-                						localStorage.clear();
+                						// functionality to iterate through the friends
                   						var num = 0;
                    						$.each(response.data,function(index,friend) {
+                   							var fbID = new String(friend.id);
                    							var friend = new String(friend.name);
-                   							var friendNumber = new String('friend' + num);
-                      						//console.log(friendNumber + ' maps:' + friend.name);
-                      						num = num + 1;
-                      						localStorage.setItem(friendNumber, friend);
-                      						//console.log(localStorage.length);
-                      						console.log(localStorage.getItem(friendNumber));
+
+											console.log(friend + ', id:' + fbID);
+                      						
                     					});
-                    					var friendCount = new String(localStorage.length)
-                   						localStorage.setItem('numFriends', friendCount);
 
                    						// move to a new page
                     					window.location.replace("chat");
                   					} else {
                     					console.log("Error!");
                   					}
-          					});
-	   					 } else {
-	   					 	// the user has cancelled the login
-						}
-					});
+          				});
+					}
 				}
 
 			</script>
@@ -106,7 +112,7 @@
 
 					<hr>
 
-					<button class="btn btn-inverse" type="button" onclick ="executeLogin()">Log In</button>
+					<button class="btn btn-inverse" type="button" onclick ="executeLogin()">Get Started!</button>
 
 					
 				</div>
