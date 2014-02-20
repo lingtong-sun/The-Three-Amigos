@@ -1,0 +1,33 @@
+[
+	{
+		"user_one": "0",
+		"user_two": "1n",
+		"friends_since": "January 1 1990"
+	},
+	{
+		"user_one": "1",
+		"user_two": "0",
+		"friends_since": "January 1 1990"
+	},
+	{
+		"user_one": "0",
+		"user_two": "2",
+		"friends_since": "January 1 1990"
+	},
+	{
+		"user_one": "2",
+		"user_two": "0",
+		"friends_since": ""
+	},
+	{
+		"user_one": "1",
+		"user_two": "2",
+		"friends_since": ""
+	},
+	{
+		"user_one": "2",
+		"user_two": "1",
+		"friends_since": ""
+	},
+
+]

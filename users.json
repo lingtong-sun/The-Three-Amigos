@@ -1,18 +1,18 @@
 [
 	{
-		"facebook_id": "000000",
+		"facebook_id": "0",
 		"name": "Lingtong Sun",
 		"send_language": "en",
 		"receive_language": "es"
 	},
 	{
-		"facebook_id": "11111111111",
+		"facebook_id": "1",
 		"name": "Emma Guth",
 		"send_language": "en",
 		"receive_language": "es"
 	},
 	{
-		"facebook_id": "222222222222222222",
+		"facebook_id": "2",
 		"name": "Hassan Karaouni",
 		"send_language": "en",
 		"receive_language": "es"
