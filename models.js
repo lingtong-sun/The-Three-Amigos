@@ -2,7 +2,6 @@
 var Mongoose = require('mongoose');
 
 var UserSchema = new Mongoose.Schema({
-	"_id" : false,
 	"facebook_id": Number,
 	"name" : String,
 	"send_language" : String,
