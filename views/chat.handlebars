@@ -120,9 +120,9 @@
   <div class="tab-content">
     <div class="tab-pane active" id="chats">
       <table>
-        {{#each friends}}
+        {{#each users}}
         <tr class="friend convo-link" href="/conversation/{{name}}">
-          <td class="pic" rowspan=2><img class="img-responsive img-circle" src="{{imageURL}}"/></td>
+          <td class="pic" rowspan=2><img class="img-responsive img-circle" src="{{image}}"/></td>
           <td>{{name}}</td>
         </tr>
         <tr class="bottom"><td class="description">{{description}}<td></tr>
@@ -144,9 +144,9 @@
 <input class="countries" type="text" placeholder="Countries">
 
       <table>
-        {{#each friends}}
+        {{#each users}}
         <tr class="friend bottom convo-link" href="conversation/{{name}}">
-          <td class="pic"><img class="img-responsive img-circle" src="{{imageURL}}"/></td>
+          <td class="pic"><img class="img-responsive img-circle" src="{{image}}"/></td>
           <td>{{name}}</td>
         </tr>
         {{/each}}

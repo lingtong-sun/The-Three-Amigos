@@ -1,6 +1,6 @@
-var data = require('../friends_copy.json');
+var data = require('../users.json');
 
 exports.view = function(req, res){
   console.log(data);
-  res.render('chat', data);
+  res.render('chat', { "users" : data });
 };

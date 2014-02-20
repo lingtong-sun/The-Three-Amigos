@@ -1,4 +1,4 @@
-var data = require('../conversation.json');
+var data = require('../conversation_copy.json');
 
 exports.viewConversation = function(req, res){
 	var name = req.params.name;
