@@ -1,4 +1,4 @@
-var data = require('../friends.json');
+var data = require('../friends_copy.json');
 
 exports.view = function(req, res){
   console.log(data);
