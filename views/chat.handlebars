@@ -114,136 +114,144 @@
 
     <div class="tab-pane" id="friends">
 
-        <div class="input-group">
-      <input type="text" class="form-control">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
-      </span>
-    </div><!-- /input-group -->
-
-    <table>
-      {{#each friends}}
-      <tr class="friend bottom convo-link" href="conversation/{{name}}">
-        <td class="pic"><img class="img-responsive img-circle" src="{{imageURL}}"/></td>
-        <td>{{name}}</td>
-      </tr>
-      {{/each}}
-    </table>
-
-    
-  </div>
-
-  <div class="tab-pane" id="settings">
-    <div class="info">
-      <h5> Emma Guth </h5>
-      <img class="img-circle" src="http://placekitten.com/90/90"/>
-    </div>
-    <form id="settingform" class="form-horizontal" action="chat/changeSettings">
-      <fieldset>
-
-        <!-- Select Basic -->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="sendlang">Send Language</label>
-          <div class="col-md-6">
-            <select id="sendlang" name="sendlang" class="form-control">
-              <option value="1">English</option>
-              <option value="2">Spanish</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="receivelang">Recieve Language</label>
-          <div class="col-md-6">
-            <select id="recievelang" name="recievelang" class="form-control">
-              <option value="1">English</option>
-              <option value="2">Spanish</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Button -->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="save"></label>
-          <div class="col-md-4">
-            <button id="save" name="save" class="btn btn-inverse">Save Changes</button>
-          </div>
-        </div>
-
-      </fieldset>
-    </form>
-
-  </div>
+      <div class="input-group">
+        <input type="text" class="form-control">
 
 
-  <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-    <div class="container-fluid">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+        </span>
+      </div><!-- /input-group -->
 
-      <a href="#fakelink" class="btn btn-block btn-lg btn-primary navbar-btn" data-toggle="modal" data-target="#new-msg">New Message <i class="fa fa-envelope"></i></span>
-      </a>
+<input class="countries" type="text" placeholder="Countries">
+
+      <table>
+        {{#each friends}}
+        <tr class="friend bottom convo-link" href="conversation/{{name}}">
+          <td class="pic"><img class="img-responsive img-circle" src="{{imageURL}}"/></td>
+          <td>{{name}}</td>
+        </tr>
+        {{/each}}
+      </table>
+
 
     </div>
-  </nav>
 
-  <div class="modal fade bs-modal-sm" id="new-msg">
-    <div class="modal-dialog">
-      <div class="modal-content">
+    <div class="tab-pane" id="settings">
+      <div class="info">
+        <h5> Emma Guth </h5>
+        <img class="img-circle" src="http://placekitten.com/90/90"/>
+      </div>
+      <form id="settingform" class="form-horizontal" action="chat/changeSettings">
+        <fieldset>
 
-        <div class="modal-body">
-          <form class="form-horizontal" id="messageform" action="chat/sendMessage">
-            <fieldset>
+          <!-- Select Basic -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="sendlang">Send Language</label>
+            <div class="col-md-6">
+              <select id="sendlang" name="sendlang" class="form-control">
+                <option value="1">English</option>
+                <option value="2">Spanish</option>
+              </select>
+            </div>
+          </div>
 
-              <!-- Form Name -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="receivelang">Recieve Language</label>
+            <div class="col-md-6">
+              <select id="recievelang" name="recievelang" class="form-control">
+                <option value="1">English</option>
+                <option value="2">Spanish</option>
+              </select>
+            </div>
+          </div>
 
-              <!-- Text input-->
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="recipient">Recipient</label>  
-                <div class="col-md-6">
-                  <input id="recipient" name="recipient" type="text" placeholder="" class="form-control input-md" required="">
+          <!-- Button -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="save"></label>
+            <div class="col-md-4">
+              <button id="save" name="save" class="btn btn-inverse">Save Changes</button>
+            </div>
+          </div>
+
+        </fieldset>
+      </form>
+
+    </div>
+
+
+    <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+      <div class="container-fluid">
+
+        <a href="#fakelink" class="btn btn-block btn-lg btn-primary navbar-btn" data-toggle="modal" data-target="#new-msg">New Message <i class="fa fa-envelope"></i></span>
+        </a>
+
+      </div>
+    </nav>
+
+    <div class="modal fade bs-modal-sm" id="new-msg">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-body">
+            <form class="form-horizontal" id="messageform" action="chat/sendMessage">
+              <fieldset>
+
+                <!-- Form Name -->
+
+                <!-- Text input-->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="recipient">Recipient</label>  
+                  <div class="col-md-6">
+                    <input id="recipient" name="recipient" type="text" placeholder="" class="form-control input-md" required="">
+                  </div>
                 </div>
-              </div>
 
-              <!-- Textarea -->
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="message">Message</label>
-                <div class="col-md-4">                     
-                  <textarea class="form-control" id="message" name="message"></textarea>
+                <!-- Textarea -->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="message">Message</label>
+                  <div class="col-md-4">                     
+                    <textarea class="form-control" id="message" name="message"></textarea>
+                  </div>
                 </div>
-              </div>
-              <div class="centered form-group">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <div class="centered form-group">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
-                <button type="button" id="sendmessage" class="btn btn-primary" data-dismiss="modal">Send message</button>
-              </div>
-            </fieldset>
-          </form>
-
-
-        </div>
-
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
+                  <button type="button" id="sendmessage" class="btn btn-primary" data-dismiss="modal">Send message</button>
+                </div>
+              </fieldset>
+            </form>
 
 
+          </div>
 
-  <!-- Load JS here for greater good =============================-->
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="flat-ui/js/jquery-1.8.3.min.js"></script>
-  <script src="flat-ui/js/jquery-ui-1.10.3.custom.min.js"></script>
-  <script src="flat-ui/js/jquery.ui.touch-punch.min.js"></script>
-  <script src="flat-ui/js/bootstrap.min.js"></script>
-  <script src="flat-ui/js/bootstrap-select.js"></script>
-  <script src="flat-ui/js/bootstrap-switch.js"></script>
-  <script src="flat-ui/js/flatui-checkbox.js"></script>
-  <script src="flat-ui/js/flatui-radio.js"></script>
-  <script src="flat-ui/js/jquery.tagsinput.js"></script>
-  <script src="flat-ui/js/jquery.placeholder.js"></script>
-  <script src="flat-ui/js/jquery.stacktable.js"></script>
-  <script src="http://vjs.zencdn.net/4.3/video.js"></script>
-  <script src="flat-ui/js/application.js"></script>
-  <script src="/js/clickable.js"></script>
-  <script src="/js/index.js"></script>
-</body>
-</html>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+
+    <!-- Load JS here for greater good =============================-->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="flat-ui/js/jquery-1.8.3.min.js"></script>
+    <script src="flat-ui/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="flat-ui/js/jquery.ui.touch-punch.min.js"></script>
+    <script src="flat-ui/js/bootstrap.min.js"></script>
+    <script src="flat-ui/js/bootstrap-select.js"></script>
+    <script src="flat-ui/js/bootstrap-switch.js"></script>
+    <script src="flat-ui/js/flatui-checkbox.js"></script>
+    <script src="flat-ui/js/flatui-radio.js"></script>
+    <script src="flat-ui/js/jquery.tagsinput.js"></script>
+    <script src="flat-ui/js/jquery.placeholder.js"></script>
+    <script src="flat-ui/js/jquery.stacktable.js"></script>
+    <script src="http://vjs.zencdn.net/4.3/video.js"></script>
+    <script src="flat-ui/js/application.js"></script>
+    <script src="js/clickable.js"></script>
+    <script src="js/index.js"></script>
+    <script src="typeahead.js/typeahead.bundle.js"></script>
+
+
+
+  </body>
+  </html>
 
