@@ -5,16 +5,17 @@ var UserSchema = new Mongoose.Schema({
 	"_id" : false,
 	"facebook_id": Number,
 	"name" : String,
-	"date_joined" : Date,
+	"date_joined" : { type: Date, default: Date.now },
 	"send_language" : String,
 	"receive_language" : String,
-	"new_user": Boolean
+	"new_user": Boolean,
+	"image_source" : String
 });
 
 var FriendSchema = new Mongoose.Schema({
 	"user_one" : { type: Number, ref: 'User' },
 	"user_two" : { type: Number, ref: 'User' },
-	"friends_since" : Date
+	"friends_since" : { type: Date, default: Date.now }
 });
 
 var MessageSchema = new Mongoose.Schema({
