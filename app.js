@@ -18,6 +18,7 @@ var chat = require('./routes/chat');
 var conversation = require('./routes/conversation');
 var setting = require("./routes/changeSettings");
 var sendmessage = require("./routes/sendMessage");
+var setsession = require("./routes/setSession");
 
 // Connect to the Mongo database, whether locally or on Heroku
 // MAKE SURE TO CHANGE THE NAME FROM 'lab7' TO ... IN OTHER PROJECTS
@@ -53,9 +54,10 @@ app.get('/', index.view);
 // Example route
 app.get('/chat', chat.view);
 app.get('/conversation/:name', conversation.viewConversation);
-
+app.get('/setsession/:id', setsession.setSession);
 app.post("/chat/changeSettings", setting.changeSettings);
 app.post("/chat/sendMessage", sendmessage.send);
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

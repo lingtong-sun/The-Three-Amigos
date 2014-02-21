@@ -1,7 +1,9 @@
-// Get all of our friend data
-var data = require('../friends.json');
+/*
+ * GET home page
+ */
 
 exports.view = function(req, res){
-  console.log(data);
-  res.render('index', data);
+  res.render('index', {
+  	userid: req.session.userid
+  });
 };
