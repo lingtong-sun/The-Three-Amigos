@@ -121,13 +121,16 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div class="tab-pane active" id="chats">
+
+   
+
       <table>
-        {{#each users}}
-        <tr class="friend convo-link" href="/conversation/{{name}}">
-          <td class="pic" rowspan=2><img class="img-responsive img-circle" src="{{image}}"/></td>
-          <td>{{name}}</td>
+        {{#each messages}}
+        <tr class="friend convo-link" href="/conversation/{{friend._id}}">
+          <td class="pic" rowspan=2><img class="img-responsive img-circle" src="{{friend.image}}"/></td>
+          <td>{{friend.name}}</td>
         </tr>
-        <tr class="bottom"><td class="description">{{description}}<td></tr>
+        <tr class="bottom"><td class="description">{{message.translated}}<td></tr>
         {{/each}}
       </table>
     </div>
@@ -143,13 +146,13 @@
         </span>
       </div><!-- /input-group -->
 
-<input class="countries" type="text" placeholder="Countries">
+<!--<input class="countries" type="text" placeholder="Countries">-->
 
       <table>
         {{#each users}}
-        <tr class="friend bottom convo-link" href="conversation/{{name}}">
-          <td class="pic"><img class="img-responsive img-circle" src="{{image}}"/></td>
-          <td>{{name}}</td>
+        <tr class="friend bottom convo-link" href="conversation/{{user_two._id}}">
+          <td class="pic"><img class="img-responsive img-circle" src="{{user_two.image}}"/></td>
+          <td>{{user_two.name}}</td>
         </tr>
         {{/each}}
       </table>
@@ -159,29 +162,35 @@
 
     <div class="tab-pane" id="settings">
       <div class="info">
-        <h5> Emma Guth </h5>
-        <img class="img-circle" src="http://placekitten.com/90/90"/>
+        <h5> {{curr_user.name}} </h5>
+        <img class="img-circle bigger-pic" src="{{curr_user.image}}"/>
       </div>
+
+      <div style="display: none ;" id="save-notice" class="alert alert-warning fade in">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> Changes saved!
+      </div>
+
+
       <form id="settingform" class="form-horizontal" action="chat/changeSettings">
         <fieldset>
 
           <!-- Select Basic -->
           <div class="form-group">
-            <label class="col-md-4 control-label" for="sendlang">Send Language</label>
+            <label class="col-md-4 control-label" for="sendlang">Send Language (current: {{curr_user.send_language}})</label>
             <div class="col-md-6">
               <select id="sendlang" name="sendlang" class="form-control">
-                <option value="1">English</option>
-                <option value="2">Spanish</option>
+                <option value="en">English</option>
+                <option value="es">Spanish</option>
               </select>
             </div>
           </div>
 
           <div class="form-group">
-            <label class="col-md-4 control-label" for="receivelang">Recieve Language</label>
+            <label class="col-md-4 control-label" for="receivelang">Recieve Language (current: {{curr_user.receive_language}})</label>
             <div class="col-md-6">
               <select id="recievelang" name="recievelang" class="form-control">
-                <option value="1">English</option>
-                <option value="2">Spanish</option>
+                <option value="en">English</option>
+                <option value="es" selected>Spanish</option>
               </select>
             </div>
           </div>

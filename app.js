@@ -53,7 +53,7 @@ if ('development' == app.get('env')) {
 app.get('/', index.view);
 // Example route
 app.get('/chat', chat.view);
-app.get('/conversation/:name', conversation.viewConversation);
+app.get('/conversation/:id', conversation.viewConversation);
 app.get('/setsession/:id', setsession.setSession);
 app.post("/chat/changeSettings", setting.changeSettings);
 app.post("/chat/sendMessage", sendmessage.send);

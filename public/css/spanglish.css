@@ -10,7 +10,11 @@
 	width: 55px;
 }
 
-#friends table, #chats table {
+.bigger-pic {
+	width: 125px;
+}
+
+#friends table, #chats table, .sender {
 	width: 100%
 }
 
@@ -78,6 +82,11 @@
 	text-align: left;
 }
 
+.sender, .sender .from-date, .sender .convo-pic {
+	text-align: right;
+	float: right;
+}
+
 .search-button, .search-field {
 }
 
@@ -91,4 +100,8 @@ body {
 .navbar-default {
 	background-color: #dedede;
 	opacity:0.95;
+}
+
+.hidden {
+	display: none;
 }
