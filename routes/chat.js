@@ -5,7 +5,7 @@ var models = require('../models');
 exports.view = function(req, res){
   console.log(req.session.user_id);
 
-  var current_user = "0";
+  var current_user = req.session.user_id;
   var db_data = new Array();
   var db_messages = new Array();
   models.Friend
