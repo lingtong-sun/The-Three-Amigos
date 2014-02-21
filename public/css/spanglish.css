@@ -10,6 +10,10 @@
 	width: 55px;
 }
 
+.bigger-pic {
+	width: 125px;
+}
+
 #friends table, #chats table {
 	width: 100%
 }
