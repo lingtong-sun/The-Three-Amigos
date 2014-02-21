@@ -10,7 +10,7 @@ exports.setSession = function(req, res){
   
   req.session.user_id = id;
   req.session.user_name = name;
-  req.session.friends = req.params.arr;
+  //req.session.friends = req.params.arr;
 
   	//console.log(name);
   	/*
