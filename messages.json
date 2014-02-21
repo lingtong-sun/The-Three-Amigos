@@ -2,15 +2,17 @@
 	{
 		"sender": "0",
 		"recipient": "1",
-		"send_time": "January 1 1990",
+		"send_time": "January 1 1991",
 		"original": "hello",
-		"translated": "hola"
+		"translated": "hola",
+		"conversation": "1"
 	},
 	{
 		"sender": "1",
 		"recipient": "0",
 		"send_time": "January 2 1990",
 		"original": "hi hi",
-		"translated": "hola hola"
+		"translated": "hola hola",
+		"conversation": "1"
 	}
 ]
