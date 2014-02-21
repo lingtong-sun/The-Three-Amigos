@@ -1,15 +1,15 @@
 [
 	{
-		"sender": "0",
-		"recipient": "1",
+		"sender": "100000650048830",
+		"recipient": "627077541",
 		"send_time": "January 1 1991",
 		"original": "hello",
 		"translated": "hola",
 		"conversation": "1"
 	},
 	{
-		"sender": "1",
-		"recipient": "0",
+		"sender": "627077541",
+		"recipient": "100000650048830",
 		"send_time": "January 2 1990",
 		"original": "hi hi",
 		"translated": "hola hola",
