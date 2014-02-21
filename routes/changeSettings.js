@@ -1,6 +1,5 @@
 var models = require('../models');
 
-
 exports.changeSettings = function(req, res){
 	var body =  req['body'];
 	console.log(body);
@@ -22,3 +21,6 @@ exports.changeSettings = function(req, res){
 
 	}
 };
+
+
+
