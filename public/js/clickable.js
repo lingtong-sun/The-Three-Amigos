@@ -17,6 +17,12 @@ $('input.counties').typeahead({
 });
 
 
+$('#save').on("click", function() {
+	$('#save-notice').show();
+	console.log("kasjdfhd");
+});
+
+
 })
 
 

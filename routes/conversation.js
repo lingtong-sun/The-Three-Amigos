@@ -34,7 +34,6 @@ exports.viewConversation = function(req, res){
 				if(messages[i]['conversation'] < 0)
 					return;
 
-				var message_by;
 				if (messages[i]['sender'] == friend_id){
 					models.User 
 		  			.findOne({"facebook_id": friend_id})
@@ -48,7 +47,7 @@ exports.viewConversation = function(req, res){
     			
 				function setSender(err, sender) {
     				if (err) console.log(err);
-    				message_by = sender;
+    				var message_by = sender;
     				var type = "receiver";
     				if (sender['facebook_id'] == my_id)type = "sender";
 					db_messages.push({"message": messages[counter],

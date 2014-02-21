@@ -101,3 +101,7 @@ body {
 	background-color: #dedede;
 	opacity:0.95;
 }
+
+.hidden {
+	display: none;
+}
