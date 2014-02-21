@@ -9,7 +9,8 @@ exports.addFriendship = function(req, res) {
 
 	var newFriendship = new models.Friendship({
     	"user_one" : friendship['user_one'],
-		"user_two" : friendship['user_two']
+		"user_two" : friendship['user_two'],
+		
   	});
 
   	newFriendship.save(afterSaving);

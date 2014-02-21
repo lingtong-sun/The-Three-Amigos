@@ -67,7 +67,7 @@ exports.view = function(req, res){
     }
    	
   }
-   
+
   // var db_messages = new Array();
   // models.Friend
   // 	.find({"user_one": current_user,
@@ -80,4 +80,5 @@ exports.view = function(req, res){
   // }
 
  // res.render('chat', { "users" : data });
+
 };
