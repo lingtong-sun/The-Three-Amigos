@@ -8,11 +8,15 @@ exports.changeSettings = function(req, res){
 	var current_user = req.session.user_id;
 
 	console.log(current_user);
-	models.User
-	.findOne({"_id" : current_user})
-	.update({"send_language": body.sendlang},
-		{"receive_language": body.recievelang })
-	.exec(afterUpdating);
+	// models.User
+	// .findOne({"_id" : current_user})
+	// .update({"send_language": body.sendlang},
+	// 	{"receive_language": body.recievelang })
+	// .exec(afterUpdating);
+
+	 models.User.update({"_id": current_user},
+          {"send_language": body.sendlang, "receive_language": body.recievelang}, {"multi": true}, 
+          afterUpdating);
 
 	function afterUpdating(err, user) {
 		if(err) console.log(err);
