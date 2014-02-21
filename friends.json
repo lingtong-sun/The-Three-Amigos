@@ -1,26 +1,32 @@
 [
 	{
 		"user_one": "0",
-		"user_two": "1"
+		"user_two": "1",
+		"conversation_id": "1"
 	},
 	{
 		"user_one": "1",
-		"user_two": "0"
+		"user_two": "0",
+		"conversation_id": "1"
 	},
 	{
 		"user_one": "0",
-		"user_two": "2"
+		"user_two": "2",
+		"conversation_id": "-1"
 	},
 	{
 		"user_one": "2",
-		"user_two": "0"
+		"user_two": "0",
+		"conversation_id": "-1"
 	},
 	{
 		"user_one": "1",
-		"user_two": "2"
+		"user_two": "2",
+		"conversation_id": "-1"
 	},
 	{
 		"user_one": "2",
-		"user_two": "1"
+		"user_two": "1",
+		"conversation_id": "-1"
 	}
 ]

@@ -7,6 +7,7 @@ exports.view = function(req, res){
 
   var current_user = "0";
   var db_data = new Array();
+  var db_messages = new Array();
   models.Friend
   		.find({"user_one": current_user})
   		.exec(afterFindFriends);
@@ -15,6 +16,11 @@ exports.view = function(req, res){
     if(err) console.log(err);
     //console.log(friends);
     var counter = 0;
+    var message_counter = 0;
+    for (var i=0; i < friends.length; i++) {
+    	if (friends[i]['conversation_id'] >= 0) message_counter++;
+    }
+    console.log(message_counter);
     for (var i=0; i < friends.length; i++) {
     	var json = friends[i];
     	var friend_id = json['user_two'];
@@ -25,19 +31,53 @@ exports.view = function(req, res){
 
     	function afterGrabbingUserData(err, users) {
     		if(err) console.log(err);
-    		console.log(users);
+    		//console.log(users);
     		db_data[counter] = users[0];
     		counter ++;
     		console.log(counter + " " + friends.length);
-    		if (counter == friends.length) {
+    		if (counter == friends.length && message_counter == 0) {
     			console.log(db_data);
-   				res.render('chat', { "users" : db_data });
+    			console.log(db_messages);
+   				res.render('chat', { "users" : db_data, 
+   									 "messages" : db_messages });
+    		}
+    	}
+
+    	if (json['conversation_id'] >= 0) {
+    		models.Message
+    			  .find({"conversation": json['conversation_id']})
+    			  .sort("-send_time")
+    			  .exec(afterGrabbingMessageData);
+
+    		function afterGrabbingMessageData(err, messages) {
+    			if (err) console.log(err);
+    			console.log(messages);
+    			if (messages.length > 0 ) {
+    				db_messages.push(messages[0]);
+    			}
+    			message_counter--;
+    			if (counter == friends.length && message_counter == 0) {
+    				console.log(db_data);
+    				console.log(db_messages);
+   					res.render('chat', { "users" : db_data, 
+   									 "messages" : db_messages });
+    			}	
     		}
     	}
     }
    	
   }
    
+  // var db_messages = new Array();
+  // models.Friend
+  // 	.find({"user_one": current_user,
+  // 		   "conversation_id": {$gte: 0}})
+  // 	.exec(afterFindFriends_v2);
+
+  // function afterFindFriends_v2(err, friends) {
+  // 	if(err) console.log(err);
+  // 	console.log(friends);
+  // }
 
  // res.render('chat', { "users" : data });
 };
