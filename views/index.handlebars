@@ -72,17 +72,44 @@
   					FB.login(function(response) {
   						if (response.authResponse) {
   	    					// the user has chosen to login via FB
-  							var id;
   							FB.api('/me', 
   								function(response) { 
-									console.log("Welcome, " + response.name + "! ID: " + response.id); 
-									window.location.replace("setsession/" + response.id);
+									scrapeFriends(response.name, response.id);
 								}
 							);
-  	   					 } else {
+						} else {
   	   					 	// the user has cancelled the login
   						}
   					});
+
+  					function scrapeFriends(name, id) {
+						console.log("Welcome, " + name + "! ID: " + id);
+			
+						FB.api('/me/friends', 
+                 			function(response) {
+
+                 				console.log(response.name);
+                 				var count = 0;
+                 				var friends = new Array();
+                 				if(response.data) {
+                    				$.each(response.data,function(index,friend) {
+                    					var friendID = friend.id;
+                    					//console.log(friendID);
+                    					friends[count] = friendID;
+                    					count++;
+                     				});
+                    				//console.log(name + "'s friends: " + friends);
+                    				window.location.replace("setsession/" + name + "/" + id + "/" + friends);
+                   				} else {
+                     				console.log("Error!");
+                   				}
+           					}
+           				);
+
+									
+					}
+
+
   				}
 
 			</script>		    	 

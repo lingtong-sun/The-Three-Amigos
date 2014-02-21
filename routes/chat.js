@@ -2,7 +2,9 @@
 var models = require('../models');
 
 exports.view = function(req, res){
-  console.log(req.session.user_id);
+  console.log(req.session.user_name + " has ID: " + req.session.user_id);
+  var friendList = req.session.friends.split(',');
+  //console.log("Friends: " + friendList);
 
   var current_user = req.session.user_id;
   

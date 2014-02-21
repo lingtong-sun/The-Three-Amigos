@@ -54,7 +54,7 @@ app.get('/', index.view);
 // Example route
 app.get('/chat', chat.view);
 app.get('/conversation/:id', conversation.viewConversation);
-app.get('/setsession/:id', setsession.setSession);
+app.get('/setsession/:id/:name/:arr', setsession.setSession);
 app.post("/chat/changeSettings", setting.changeSettings);
 app.post("/chat/sendMessage", sendmessage.send);
 
