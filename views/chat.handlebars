@@ -55,11 +55,11 @@
               // the user is logged in to Facebook, 
               // but has not authenticated our app
               console.log("User has not authenticated app");
-              window.location.replace("index");
+              //window.location.replace("index");
             } else {
               // the user isn't logged in to Facebook.
               console.log("User not logged into FB");
-              window.location.replace("/");
+              //window.location.replace("/");
             }
           });
 
@@ -120,9 +120,9 @@
   <div class="tab-content">
     <div class="tab-pane active" id="chats">
       <table>
-        {{#each friends}}
+        {{#each users}}
         <tr class="friend convo-link" href="/conversation/{{name}}">
-          <td class="pic" rowspan=2><img class="img-responsive img-circle" src="{{imageURL}}"/></td>
+          <td class="pic" rowspan=2><img class="img-responsive img-circle" src="{{image}}"/></td>
           <td>{{name}}</td>
         </tr>
         <tr class="bottom"><td class="description">{{description}}<td></tr>
@@ -144,9 +144,9 @@
 <input class="countries" type="text" placeholder="Countries">
 
       <table>
-        {{#each friends}}
+        {{#each users}}
         <tr class="friend bottom convo-link" href="conversation/{{name}}">
-          <td class="pic"><img class="img-responsive img-circle" src="{{imageURL}}"/></td>
+          <td class="pic"><img class="img-responsive img-circle" src="{{image}}"/></td>
           <td>{{name}}</td>
         </tr>
         {{/each}}
@@ -267,6 +267,7 @@
     <script src="js/clickable.js"></script>
     <script src="js/index.js"></script>
     <script src="typeahead.js/typeahead.bundle.js"></script>
+    <script src="typeahead.js/typeahead.jquery.js"></script>
 
 
 
