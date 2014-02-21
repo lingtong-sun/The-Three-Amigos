@@ -1,4 +1,4 @@
-var data = require('../conversation_copy.json');
+var data = require('../messages.json');
 
 exports.viewConversation = function(req, res){
 	var name = req.params.name;
