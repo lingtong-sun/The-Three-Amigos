@@ -39,15 +39,15 @@
 
 
 	  		<div class="convo">
-	  			{{#each data}}
-	  			<div class="message well">
-	  				<img class="img-circle convo-pic" src="{{image}}"/>
+	  			{{#each messages}}
+	  			<div class="message well {{type}}">
+	  				<img class="img-circle convo-pic" src="{{user.image}}"/>
 	  				<div class="from-date">
-	  					<p>{{sender}}</p>
-	  					<p>{{send_time}}</p>
+	  					<p>{{user.name}}</p>
+	  					<p>{{message.send_time}}</p>
 	  				</div>
 	  				
-	  				<p class="msg-text">{{translated}}</p>
+	  				<p class="msg-text">{{message.translated}}</p>
 
 	  			</div>
 	  			{{/each}}

@@ -49,8 +49,11 @@ exports.viewConversation = function(req, res){
 				function setSender(err, sender) {
     				if (err) console.log(err);
     				message_by = sender;
+    				var type = "receiver";
+    				if (sender['facebook_id'] == my_id)type = "sender";
 					db_messages.push({"message": messages[counter],
-								  "user": message_by});
+								  "user": message_by,
+									"type": type});
 					counter ++;
 					if (counter == messages.length) {
 						console.log(db_messages);
