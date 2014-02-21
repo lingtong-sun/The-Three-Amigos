@@ -1,4 +1,4 @@
-
+console.log("imported models");
 var Mongoose = require('mongoose');
 
 var UserSchema = new Mongoose.Schema({

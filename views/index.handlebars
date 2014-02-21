@@ -27,9 +27,9 @@
 </head>
     <body>
     	<div class = "landingContainer">
-	    	<div id="fb-root"></div>
-	      	<script>
-		    	 window.fbAsyncInit = function() {
+    		<div id="fb-root"></div>
+    		<script>
+    		window.fbAsyncInit = function() {
   			        FB.init({
   			        appId      : '1452060145024625',
   			        status     : true, // check login status
@@ -71,6 +71,22 @@
   					FB.login(function(response) {
   						if (response.authResponse) {
   	    					// the user has chosen to login via FB
+  							FB.api('/me', 
+  								function(response) { 
+									console.log("Welcome, " + response.name + "!"); 
+									id = response.id;
+									console.log(id);
+    							}
+    						);
+    					} else {
+  	   					 	// the user has cancelled the login
+  						}
+  					});
+
+  					
+  					FB.login(function(response) {
+  						if (response.authResponse) {
+  	    					// the user has chosen to login via FB
   							var id;
   							FB.api('/me', 
   								function(response) { 
@@ -84,7 +100,7 @@
   					});
   				}
 
-			</script>
+			</script>		    	 
 				<div class = "loginBox">
 					<div class = "title">
 						<h1> Spanglish </h1>
