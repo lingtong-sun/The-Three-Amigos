@@ -23,5 +23,6 @@ function sendMessage(e) {
 }
 
 function displayResults(results) {
-
+	console.log("RELOAD THIS SHIT");
+	location.reload();
 }

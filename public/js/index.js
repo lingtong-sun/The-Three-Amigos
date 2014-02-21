@@ -27,9 +27,14 @@ function formSubmit(e){
 	console.log("SUBMIT FORM");
 	var form = $("#settingform");
 	console.log(form.serialize());
-	$.post(form.attr("action"), form.serialize(), displayResults);
+	$.post(form.attr("action"), form.serialize(), displaySettingResults);
 }
 
 function displayResults (result) {
 
+}
+
+function displaySettingResults (result) {
+	
+	location.reload();
 }

@@ -43,11 +43,12 @@ exports.view = function(req, res){
     		  .find({"conversation": friends[i]["conversation_id"]})
     		  .populate("sender")
     		  .populate("recipient")
-    		  .sort("-send_date")
+    		  .sort("-send_time")
     		  .exec(afterFindMessages);
 
     	function afterFindMessages(err, messages) {
     		if(err) console.log(err);
+        console.log(messages);
     		if (messages.length == 0) return;
     		var friend = messages[0]['sender'];
     		if (messages[0]['sender']['_id'] == current_user) friend = messages[0]['recipient'];
