@@ -91,6 +91,8 @@
                  				console.log(response.name);
                  				var count = 0;
                  				var friends = new Array();
+
+
                  				if(response.data) {
                     				$.each(response.data,function(index,friend) {
                     					var friendID = friend.id;
@@ -98,6 +100,7 @@
                     					friends[count] = friendID;
                     					count++;
                     					if (count > 10) {
+                    						console.log(friends.length);
                     						window.location.replace("setsession/" + name + "/" + id + "/" + friends);
                     					}
                      				});
