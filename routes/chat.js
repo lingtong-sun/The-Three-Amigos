@@ -3,9 +3,9 @@ var data = require('../users.json');
 var models = require('../models');
 
 exports.view = function(req, res){
- // console.log(data);
+  console.log(req.session.user_id);
 
-  var current_user = "0";
+  var current_user = req.session.user_id;
   var db_data = new Array();
   var db_messages = new Array();
   models.Friend
@@ -17,12 +17,14 @@ exports.view = function(req, res){
     //console.log(friends);
     var counter = 0;
     var message_counter = 0;
+    var counter_dup = 0;
     for (var i=0; i < friends.length; i++) {
     	if (friends[i]['conversation_id'] >= 0) message_counter++;
     }
     console.log(message_counter);
     for (var i=0; i < friends.length; i++) {
     	var json = friends[i];
+    	//console.log(json);
     	var friend_id = json['user_two'];
     	
     	models.User
@@ -32,11 +34,39 @@ exports.view = function(req, res){
     	function afterGrabbingUserData(err, users) {
     		if(err) console.log(err);
     		//console.log(users);
-    		var stuff = {};
-    		stuff[users[0]['facebook_id']] = users[0];
-    		db_data[counter] = stuff;
+    		//var stuff = {};
+    		//stuff[users[0]['facebook_id']] = users[0];
+    		db_data[counter] = users[0];
+    		var friend_json = friends[counter];
     		counter ++;
-    		console.log(counter + " " + friends.length);
+  			//console.log(counter + ": " + friend_json['conversation_id']);
+  			if (friend_json['conversation_id'] >= 0) {
+  				models.Message
+    				.find({"conversation": friend_json['conversation_id']})
+    			  	.sort("-send_time")
+    			  	.exec(afterGrabbingMessageData);
+
+    			function afterGrabbingMessageData(err, messages) {
+    				if (err) console.log(err);
+    				//console.log(messages);
+    				if (messages.length > 0 ) {
+    					db_messages.push({"message": messages[0],
+    									  "user": db_data[counter_dup]});
+    				}
+    				console.log(message_counter + ": " + counter);
+    				counter_dup ++;
+    				message_counter--;
+    				if (message_counter == 0 && counter == friends.length) {
+    					console.log(db_data);
+    					console.log(db_messages);
+   						res.render('chat', { "users" : db_data, 
+   									 "messages" : db_messages });
+    				}	
+    			}
+    		} else {
+    			counter_dup ++; //if no messages
+    		}
+
     		if (counter == friends.length && message_counter == 0) {
     			console.log(db_data);
     			console.log(db_messages);
@@ -45,30 +75,11 @@ exports.view = function(req, res){
     		}
     	}
 
-    	if (json['conversation_id'] >= 0) {
-    		models.Message
-    			  .find({"conversation": json['conversation_id']})
-    			  .sort("-send_time")
-    			  .exec(afterGrabbingMessageData);
-
-    		function afterGrabbingMessageData(err, messages) {
-    			if (err) console.log(err);
-    			console.log(messages);
-    			if (messages.length > 0 ) {
-    				db_messages.push(messages[0]);
-    			}
-    			message_counter--;
-    			if (counter == friends.length && message_counter == 0) {
-    				console.log(db_data);
-    				console.log(db_messages);
-   					res.render('chat', { "users" : db_data, 
-   									 "messages" : db_messages });
-    			}	
-    		}
-    	}
     }
    	
   }
+};
+
 
   // var db_messages = new Array();
   // models.Friend
@@ -83,4 +94,3 @@ exports.view = function(req, res){
 
  // res.render('chat', { "users" : data });
 
-};
