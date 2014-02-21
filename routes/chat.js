@@ -32,9 +32,9 @@ exports.view = function(req, res){
     	function afterGrabbingUserData(err, users) {
     		if(err) console.log(err);
     		//console.log(users);
-    		var stuff = {};
-    		stuff[users[0]['facebook_id']] = users[0];
-    		db_data[counter] = stuff;
+    		//var stuff = {};
+    		//stuff[users[0]['facebook_id']] = users[0];
+    		db_data[counter] = users[0];
     		counter ++;
     		console.log(counter + " " + friends.length);
     		if (counter == friends.length && message_counter == 0) {
