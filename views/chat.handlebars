@@ -123,7 +123,7 @@
     <div class="tab-pane active" id="chats">
       <table>
         {{#each users}}
-        <tr class="friend convo-link" href="/conversation/{{name}}">
+        <tr class="friend convo-link" href="/conversation/{{facebook_id}}">
           <td class="pic" rowspan=2><img class="img-responsive img-circle" src="{{image}}"/></td>
           <td>{{name}}</td>
         </tr>
@@ -147,7 +147,7 @@
 
       <table>
         {{#each users}}
-        <tr class="friend bottom convo-link" href="conversation/{{name}}">
+        <tr class="friend bottom convo-link" href="conversation/{{facebook_id}}">
           <td class="pic"><img class="img-responsive img-circle" src="{{image}}"/></td>
           <td>{{name}}</td>
         </tr>
