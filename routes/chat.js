@@ -60,7 +60,8 @@ exports.view = function(req, res){
     					console.log(db_data);
     					console.log(db_messages);
    						res.render('chat', { "users" : db_data, 
-   									 "messages" : db_messages });
+   									 "messages" : db_messages,
+   									 "current_user" : current_user });
     				}	
     			}
     		} else {
@@ -71,7 +72,8 @@ exports.view = function(req, res){
     			console.log(db_data);
     			console.log(db_messages);
    				res.render('chat', { "users" : db_data, 
-   									 "messages" : db_messages });
+   									 "messages" : db_messages,
+   									 "current_user" : current_user });
     		}
     	}
 

@@ -121,13 +121,16 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div class="tab-pane active" id="chats">
+
+   
+
       <table>
-        {{#each users}}
-        <tr class="friend convo-link" href="/conversation/{{facebook_id}}">
-          <td class="pic" rowspan=2><img class="img-responsive img-circle" src="{{image}}"/></td>
-          <td>{{name}}</td>
+        {{#each messages}}
+        <tr class="friend convo-link" href="/conversation/{{user.facebook_id}}">
+          <td class="pic" rowspan=2><img class="img-responsive img-circle" src="{{user.image}}"/></td>
+          <td>{{user.name}}</td>
         </tr>
-        <tr class="bottom"><td class="description">{{message}}<td></tr>
+        <tr class="bottom"><td class="description">{{message.translated}}<td></tr>
         {{/each}}
       </table>
     </div>
@@ -159,8 +162,8 @@
 
     <div class="tab-pane" id="settings">
       <div class="info">
-        <h5> Emma Guth </h5>
-        <img class="img-circle" src="http://placekitten.com/90/90"/>
+        <h5> {{current_user}} </h5>
+        <img class="img-circle" src="{{image}}"/>
       </div>
       <form id="settingform" class="form-horizontal" action="chat/changeSettings">
         <fieldset>
