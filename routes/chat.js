@@ -3,7 +3,7 @@ var data = require('../users.json');
 var models = require('../models');
 
 exports.view = function(req, res){
- // console.log(data);
+  console.log(req.session.user_id);
 
   var current_user = "0";
   var db_data = new Array();
@@ -69,6 +69,8 @@ exports.view = function(req, res){
     }
    	
   }
+};
+
 
   // var db_messages = new Array();
   // models.Friend
@@ -83,4 +85,3 @@ exports.view = function(req, res){
 
  // res.render('chat', { "users" : data });
 
-};

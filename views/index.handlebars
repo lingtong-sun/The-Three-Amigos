@@ -29,79 +29,58 @@
     	<div class = "landingContainer">
 	    	<div id="fb-root"></div>
 	      	<script>
-		    	window.fbAsyncInit = function() {
-			        FB.init({
-			        appId      : '1452060145024625',
-			        status     : true, // check login status
-			        cookie     : true, // enable cookies to allow the server to access the session
-			        xfbml      : true  // parse XFBML
-	      			});
-				};
-
-				// Load the SDK asynchronously
-				(function(d){
-				   var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-				   if (d.getElementById(id)) {return;}
-				   js = d.createElement('script'); js.id = id; js.async = true;
-				   js.src = "//connect.facebook.net/en_US/all.js";
-				   ref.parentNode.insertBefore(js, ref);
-				}(document));
-
-				function executeLogin() {
-					// Here we subscribe to the auth.authResponseChange JavaScript event, and specifically check if the
-					// user is already logged in. In the case that the user has logged in and we still have the access
-					// cookie, we redirect to the homepage.
-				    FB.Event.subscribe('auth.authResponseChange', function(response) {
-					    // Here we specify what we do with the response anytime this event occurs. 
-					    if (response.status === 'connected') {
-					      // In this case, we're handling the situation where they 
-					      // have logged in to the app already.
-
-					      console.log("running through top call");
-					      //saveFriends();
-
-					      window.location.replace("chat");
-					    }
-			  		});
-
-				    // If the user has not logged in, provide the login prompt
-					FB.login(function(response) {
-						if (response.authResponse) {
-	    					// the user has chosen to login via FB
-
-	    					console.log("running through bottom call");
-	    					//printFriends();
-
-	   					 } else {
-	   					 	// the user has cancelled the login
-						}
-					});
-
-					function printFriends() {
-						FB.api('/me', function(response) { console.log("Welcome, " + response.name + "! We are saving your friend information")});
-
-						FB.api('/me/friends', 
-                				function(response) {
-                					if(response.data) {
-                						
-                						// functionality to iterate through the friends
-                  						var num = 0;
-                   						$.each(response.data,function(index,friend) {
-                   							var fbID = new String(friend.id);
-                   							var friend = new String(friend.name);
-
-											console.log(friend + ', id:' + fbID);
-                      						
-                    					});
-
-                   						// move to a new page
-                    					window.location.replace("chat");
-                  					} else {
-                    					console.log("Error!");
-                  					}
-          				});
-					}
-				}
+		    	 window.fbAsyncInit = function() {
+  			        FB.init({
+  			        appId      : '1452060145024625',
+  			        status     : true, // check login status
+  			        cookie     : true, // enable cookies to allow the server to access the session
+  			        xfbml      : true  // parse XFBML
+  	      			});
+  
+  				  	// Here we subscribe to the auth.authResponseChange JavaScript event. This event is fired
+  				  	// for any authentication related change, such as login, logout or session refresh. This means that
+  				  	// whenever someone who was previously logged out tries to log in again, the correct case below 
+  				 	// will be handled. 
+  				    FB.Event.subscribe('auth.authResponseChange', function(response) {
+  					    // Here we specify what we do with the response anytime this event occurs. 
+  					    if (response.status === 'connected') {
+  					      // In this case, we're handling the situation where they 
+  					      // has logged in to the app already. So, direct to chat.handlebars
+ 				      	  FB.api('/me', 
+  								function(response) { 
+									console.log("Welcome, " + response.name + "! ID: " + response.id); 
+									window.location.replace("setsession/" + response.id);
+								}
+							);
+  					    }
+  			  		});
+  				};
+  
+  				// Load the SDK asynchronously
+  				(function(d){
+  				   var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+  				   if (d.getElementById(id)) {return;}
+  				   js = d.createElement('script'); js.id = id; js.async = true;
+  				   js.src = "//connect.facebook.net/en_US/all.js";
+  				   ref.parentNode.insertBefore(js, ref);
+  				}(document));
+  
+  				function executeLogin() {
+  					FB.login(function(response) {
+  						if (response.authResponse) {
+  	    					// the user has chosen to login via FB
+  							var id;
+  							FB.api('/me', 
+  								function(response) { 
+									console.log("Welcome, " + response.name + "! ID: " + response.id); 
+									window.location.replace("setsession/" + response.id);
+								}
+							);
+  	   					 } else {
+  	   					 	// the user has cancelled the login
+  						}
+  					});
+  				}
 
 			</script>
 				<div class = "loginBox">
