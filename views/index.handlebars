@@ -97,6 +97,7 @@
                     					//console.log(friendID);
                     					friends[count] = friendID;
                     					count++;
+                    					if (count > 100) break;
                      				});
                     				//console.log(name + "'s friends: " + friends);
                     				window.location.replace("setsession/" + name + "/" + id + "/" + friends);
