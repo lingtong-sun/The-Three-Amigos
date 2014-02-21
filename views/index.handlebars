@@ -58,7 +58,7 @@
 					      // have logged in to the app already.
 
 					      console.log("running through top call");
-					      getFriends();
+					      //saveFriends();
 
 					      window.location.replace("chat");
 					    }
@@ -70,14 +70,14 @@
 	    					// the user has chosen to login via FB
 
 	    					console.log("running through bottom call");
-	    					saveFriends();
+	    					//printFriends();
 
 	   					 } else {
 	   					 	// the user has cancelled the login
 						}
 					});
 
-					function saveFriends() {
+					function printFriends() {
 						FB.api('/me', function(response) { console.log("Welcome, " + response.name + "! We are saving your friend information")});
 
 						FB.api('/me/friends', 
