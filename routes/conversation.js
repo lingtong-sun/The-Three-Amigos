@@ -21,49 +21,30 @@ exports.viewConversation = function(req, res){
 
 		models.Message
 			.find({"conversation": friend['conversation_id']})
+			.populate("sender")
 			.sort("-send_time")
 			.exec(afterFindMessages);
 
 		function afterFindMessages(err, messages) {
 			if(err) console.log(err);
-			var counter = 0;
 			if (messages.length == 0) {
-				res.render('conversation', {});
+				//res.render('conversation', {});
 			}
 			for (var i=0; i < messages.length; i++) {
 				if(messages[i]['conversation'] < 0)
 					return;
 
-				var message_by;
-				if (messages[i]['sender'] == friend_id){
-					models.User 
-		  			.findOne({"facebook_id": friend_id})
-		  			.exec(setSender);
-				} else {
-					models.User 
-				  	.findOne({"facebook_id": my_id})
-				  	.exec(setSender);
+				var type = "sender";
+				console.log(messages[i]['sender']['_id'] +", " + friend_id);
+				if (messages[i]['sender']['_id'] == friend_id) {
+					type = "receiver";
 				}
-				
-    			
-				function setSender(err, sender) {
-    				if (err) console.log(err);
-    				message_by = sender;
-    				var type = "receiver";
-    				if (sender['facebook_id'] == my_id)type = "sender";
-					db_messages.push({"message": messages[counter],
-								  "user": message_by,
+				db_messages.push({"message": messages[i],
 									"type": type});
-					counter ++;
-					if (counter == messages.length) {
-						console.log(db_messages);
-						res.render('conversation', {"messages": db_messages});	
-					}
-    			}
-
-				
 				
 			}
+			console.log(db_messages);
+			res.render('conversation', {"messages": db_messages});
 		}
 	}
 

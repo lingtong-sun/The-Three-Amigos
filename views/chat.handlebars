@@ -126,9 +126,9 @@
 
       <table>
         {{#each messages}}
-        <tr class="friend convo-link" href="/conversation/{{user.facebook_id}}">
-          <td class="pic" rowspan=2><img class="img-responsive img-circle" src="{{user.image}}"/></td>
-          <td>{{user.name}}</td>
+        <tr class="friend convo-link" href="/conversation/{{friend._id}}">
+          <td class="pic" rowspan=2><img class="img-responsive img-circle" src="{{friend.image}}"/></td>
+          <td>{{friend.name}}</td>
         </tr>
         <tr class="bottom"><td class="description">{{message.translated}}<td></tr>
         {{/each}}
@@ -150,9 +150,9 @@
 
       <table>
         {{#each users}}
-        <tr class="friend bottom convo-link" href="conversation/{{facebook_id}}">
-          <td class="pic"><img class="img-responsive img-circle" src="{{image}}"/></td>
-          <td>{{name}}</td>
+        <tr class="friend bottom convo-link" href="conversation/{{user_two._id}}">
+          <td class="pic"><img class="img-responsive img-circle" src="{{user_two.image}}"/></td>
+          <td>{{user_two.name}}</td>
         </tr>
         {{/each}}
       </table>

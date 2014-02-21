@@ -1,13 +1,13 @@
 [
 	{
-		"facebook_id": "100000650048830",
+		"_id": "100000650048830",
 		"name": "Lingtong Sun",
 		"send_language": "en",
 		"receive_language": "es",
 		"image": "http://placekitten.com/g/200/300"
 	},
 	{
-		"facebook_id": "627077541",
+		"_id": "627077541",
 		"name": "Emma Guth",
 		"send_language": "en",
 		"receive_language": "es",
@@ -15,7 +15,7 @@
 
 	},
 	{
-		"facebook_id": "1820034814",
+		"_id": "1820034814",
 		"name": "Hassan Karaouni",
 		"send_language": "en",
 		"receive_language": "es",

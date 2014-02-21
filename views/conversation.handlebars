@@ -41,9 +41,9 @@
 	  		<div class="convo">
 	  			{{#each messages}}
 	  			<div class="message well {{type}}">
-	  				<img class="img-circle convo-pic" src="{{user.image}}"/>
+	  				<img class="img-circle convo-pic" src="{{message.sender.image}}"/>
 	  				<div class="from-date">
-	  					<p>{{user.name}}</p>
+	  					<p>{{message.sender.name}}</p>
 	  					<p>{{message.send_time}}</p>
 	  				</div>
 	  				
