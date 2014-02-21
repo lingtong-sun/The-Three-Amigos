@@ -85,6 +85,8 @@ function translate(req, res, recipient) {
         //       .exec(changeConvoID);
         models.Friend.update({"user_one": my_id, "user_two": recipient},
           {"conversation_id": conversationID}, {"multi": true}, changeConvoID);
+        models.Friend.update({"user_one": recipient, "user_two": my_id},
+          {"conversation_id": conversationID}, {"multi": true}, function(err){});
 
         function changeConvoID(err) {
           if(err) console.log(err);
