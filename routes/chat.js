@@ -11,7 +11,6 @@ exports.view = function(req, res){
   var db_users;
   var db_messages = new Array();
   var my_profile;
-<<<<<<< HEAD
 
   models.User
     .findOne({"_id": current_user})
