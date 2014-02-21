@@ -83,6 +83,8 @@ exports.setSession = function(req, res){
             }
           }
         }
+      } else {
+        res.redirect("/chat");
       }
     }
     console.log("Passing new user functions");
