@@ -6,11 +6,11 @@ exports.setSession = function(req, res){
 
 	var id = req.params.id;
 	var name = req.params.name;
-	//console.log("In setSession - " + id + " and named: " + name);
+	console.log("In setSession - " + id + " and named: " + name);
   
   req.session.user_id = id;
   req.session.user_name = name;
-  req.session.friends = req.params.arr;
+  //req.session.friends = req.params.arr;
 
   	//console.log(name);
   	/*

@@ -31,10 +31,10 @@ function formSubmit(e){
 }
 
 function displayResults (result) {
-
+	location.reload();
 }
 
 function displaySettingResults (result) {
-	
+
 	location.reload();
 }

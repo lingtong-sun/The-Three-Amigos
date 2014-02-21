@@ -4,7 +4,7 @@ var models = require('../models');
 exports.viewConversation = function(req, res){
 	var friend_id = req.params.id;
 	var my_id = req.session.user_id;
-
+	console.log("conversation: "+ friend_id);
 	//set recipient for message on this page
 	req.session.recipient = friend_id;
 
@@ -31,7 +31,7 @@ exports.viewConversation = function(req, res){
 		function afterFindMessages(err, messages) {
 			if(err) console.log(err);
 			if (messages.length == 0) {
-				//res.render('conversation', {});
+				res.render('conversation', {"messages": db_messages});
 			}
 			for (var i=0; i < messages.length; i++) {
 				if(messages[i]['conversation'] < 0)

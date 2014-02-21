@@ -2,15 +2,16 @@
 var models = require('../models');
 
 exports.view = function(req, res){
-  console.log(req.session.user_name + " has ID: " + req.session.user_id);
-  var friendList = req.session.friends.split(',');
+  // console.log(req.session.user_name + " has ID: " + req.session.user_id);
+  // var friendList = req.session.friends.split(',');
   //console.log("Friends: " + friendList);
 
   var current_user = req.session.user_id;
-  
+  console.log(current_user);
   var db_users;
   var db_messages = new Array();
   var my_profile;
+<<<<<<< HEAD
 
   models.User
     .findOne({"_id": current_user})
@@ -86,6 +87,7 @@ exports.view = function(req, res){
     console.log("Passing new user functions");
 
 
+  var message_counter = 0;
   models.User 
 		  .findOne({"_id": current_user})
 		  .exec(setFriend);
@@ -109,7 +111,6 @@ exports.view = function(req, res){
     if(err) console.log(err);
     console.log(friends);
     db_users = friends;
-    var message_counter = 0;
     for (var i=0; i < friends.length; i++) {
     	if (friends[i]['conversation_id'] >= 0) message_counter++;
     }
@@ -124,7 +125,7 @@ exports.view = function(req, res){
 
     	function afterFindMessages(err, messages) {
     		if(err) console.log(err);
-        console.log(messages);
+      //  console.log(messages);
     		if (messages.length == 0) return;
     		var friend = messages[0]['sender'];
     		if (messages[0]['sender']['_id'] == current_user) friend = messages[0]['recipient'];
