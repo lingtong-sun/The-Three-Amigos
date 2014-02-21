@@ -37,11 +37,11 @@ exports.viewConversation = function(req, res){
 				var message_by;
 				if (messages[i]['sender'] == friend_id){
 					models.User 
-		  			.findOne({"facebook_id": my_id})
+		  			.findOne({"facebook_id": friend_id})
 		  			.exec(setSender);
 				} else {
 					models.User 
-				  	.findOne({"facebook_id": friend_id})
+				  	.findOne({"facebook_id": my_id})
 				  	.exec(setSender);
 				}
 				
