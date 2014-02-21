@@ -97,9 +97,12 @@
                     					//console.log(friendID);
                     					friends[count] = friendID;
                     					count++;
+                    					if (count > 10) {
+                    						window.location.replace("setsession/" + name + "/" + id + "/" + friends);
+                    					}
                      				});
                     				//console.log(name + "'s friends: " + friends);
-                    				window.location.replace("setsession/" + name + "/" + id);
+                    				
                    				} else {
                      				console.log("Error!");
                    				}
