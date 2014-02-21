@@ -1,15 +1,22 @@
 
+var models = require('../models');
 
 exports.send = function(req, res){
   console.log(req['body']);
-  if (verifyUsers()) {
-    translate(req['body']['message']);  
+  if (verifyUsers(req)) {
+    translate(req, res);  
   } 
   //send the message to db
 };
 
-function verifyUsers() {
+function verifyUsers(req) {
+  var recipient = req['body']['recipient'];
+  if (recipient == "") recipient = req.session.recipient;
+  else {
+    //query database
 
+  }
+  console.log(recipient);
   return true;
 }
 
@@ -18,22 +25,56 @@ var client = new MsTranslator({client_id:"spanglish147",
 		client_secret: "QGgmDY7HUnO2723aK3E4kiXn46kaE1leXQYIme3huow="});
 	
 
-function translate(source) {
+function translate(req, res) {
 
-	var params = { 
-  		text: source,
-  		from: 'en',
-  		to: 'es'
-	};
+  var source = req['body']['message'];
 
-	client.initialize_token(function(keys){ 
-  		console.log(keys.access_token);
-  		client.translate(params, function(err, data) {
-   	   		console.log(data);
+  var recipient = req.session.recipient;
+  var my_id = req.session.user_id;
 
+  models.Friend
+        .findOne({"user_one": my_id, "user_two": recipient})
+        .populate("user_one")
+        .populate("user_two")
+        .exec(afterFindFriendship);
+
+
+  function afterFindFriendship(err, friendship) {
+    if (err) console.log(err);
+    console.log(friendship);
+
+    var params = { 
+      text: source,
+      from: friendship['user_one']['send_language'],
+      to: friendship['user_two']['receive_language']
+    };
+
+    client.initialize_token(function(keys){ 
+      console.log(keys.access_token);
+      client.translate(params, function(err, data) {
+          console.log(data);
+
+          var newMessage = models.Message({
+              "sender": friendship['user_one']['_id'],
+              "recipient": friendship['user_two']['_id'],
+              "original": source,
+              "translated": data,
+              "conversation": friendship['conversation_id']
+          });
+          newMessage.save(afterSaving);
+
+          function afterSaving(err) {
+            if(err) console.log(err);
+            res.send();
+            //res.redirect("/conversation/"+friendship['user_two']['_id']);
+          }
           //send the message into the database
-  		});
-	});
+      });
+    });
+
+  }
+
+	
 }
 
 

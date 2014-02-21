@@ -9,13 +9,14 @@ exports.changeSettings = function(req, res){
 
 	console.log(current_user);
 	models.User
-	.findOne({"facebook_id" : current_user})
-	.update({"send_language": body.sendlang,
-		"receive_language": body.recievelang })
+	.findOne({"_id" : current_user})
+	.update({"send_language": body.sendlang},
+		{"receive_language": body.recievelang })
 	.exec(afterUpdating);
 
-	function afterUpdating(err) {
+	function afterUpdating(err, user) {
 		if(err) console.log(err);
+		console.log(user);
 		console.log("UPDATED");
 		res.send();
 
