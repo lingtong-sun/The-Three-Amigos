@@ -14,7 +14,7 @@
 	width: 125px;
 }
 
-#friends table, #chats table, .sender {
+#friends table, #chats table, .sender, .receiver {
 	width: 100%
 }
 
@@ -85,6 +85,11 @@
 .sender, .sender .from-date, .sender .convo-pic {
 	text-align: right;
 	float: right;
+}
+
+.receiver, .receiver .from-date, .receiver .convo-pic {
+	text-align: left;
+	float: left;
 }
 
 .search-button, .search-field {

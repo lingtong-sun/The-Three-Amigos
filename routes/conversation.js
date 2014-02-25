@@ -25,7 +25,7 @@ exports.viewConversation = function(req, res){
 		models.Message
 			.find({"conversation": friend['conversation_id']})
 			.populate("sender")
-			.sort("-send_time")
+			.sort("send_time")
 			.exec(afterFindMessages);
 
 		function afterFindMessages(err, messages) {
