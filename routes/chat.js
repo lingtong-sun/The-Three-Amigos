@@ -2,12 +2,12 @@
 var models = require('../models');
 
 exports.view = function(req, res){
-  console.log(req.session.user_name + " has ID: " + req.session.user_id);
-  var friendList = req.session.friends.split(',');
+  console.log("chat.js --> " + req.session.user_name + " has ID: " + req.session.user_id);
+  var friendList = req.session.friends;
   //console.log("Friends: " + friendList);
 
   var current_user = req.session.user_id;
-  console.log(current_user);
+  console.log("chat.js --> ID: " + current_user);
   var db_users;
   var db_messages = new Array();
   var my_profile;
@@ -70,21 +70,4 @@ exports.view = function(req, res){
  					 "messages": db_messages})
  	}  	
   }
-
-
 };
-
-
-  // var db_messages = new Array();
-  // models.Friend
-  // 	.find({"user_one": current_user,
-  // 		   "conversation_id": {$gte: 0}})
-  // 	.exec(afterFindFriends_v2);
-
-  // function afterFindFriends_v2(err, friends) {
-  // 	if(err) console.log(err);
-  // 	console.log(friends);
-  // }
-
- // res.render('chat', { "users" : data });
-

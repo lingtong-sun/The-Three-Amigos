@@ -27,39 +27,19 @@
 </head>
     <body>
     	<div class = "landingContainer">
+        <!-- START FACEBOOK SCRIPT -->
     		<div id="fb-root"></div>
     		<script>
-    		window.fbAsyncInit = function() {
+    		  window.fbAsyncInit = function() {
   			        FB.init({
   			        appId      : '1452060145024625',
   			        status     : true, // check login status
   			        cookie     : true, // enable cookies to allow the server to access the session
   			        xfbml      : true  // parse XFBML
   	      			});
-  
-  				  	// Here we subscribe to the auth.authResponseChange JavaScript event. This event is fired
-  				  	// for any authentication related change, such as login, logout or session refresh. This means that
-  				  	// whenever someone who was previously logged out tries to log in again, the correct case below 
-  				 	// will be handled. 
-  				    /*
-  				    FB.Event.subscribe('auth.authResponseChange', function(response) {
-  					    // Here we specify what we do with the response anytime this event occurs. 
-  					    if (response.status === 'connected') {
-  					      // In this case, we're handling the situation where they 
-  					      // has logged in to the app already. So, direct to chat.handlebars
- 				      	  FB.api('/me', 
-  								function(response) { 
-									console.log("Welcome, " + response.name + "! ID: " + response.id); 
-									window.location.replace("setsession/" + response.id);
-								}
-							);
-  					    }
-  			  		});
-					*/
-					
   				};
   
-  				// Load the SDK asynchronously
+  				// Load the Facebook SDK asynchronously
   				(function(d){
   				   var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
   				   if (d.getElementById(id)) {return;}
@@ -68,57 +48,55 @@
   				   ref.parentNode.insertBefore(js, ref);
   				}(document));
   
+          // Executed on click of the Get Started! button - must be called on click of an HTML button
   				function executeLogin() {
   					FB.login(function(response) {
   						if (response.authResponse) {
-  	    					// the user has chosen to login via FB
+  	    					// the user has chosen to login via FB - scrape info and redirect to login script
   							FB.api('/me', 
   								function(response) { 
 									scrapeFriends(response.name, response.id);
 								}
 							);
-						} else {
-  	   					 	// the user has cancelled the login
-  						}
+						}
   					});
 
   					function scrapeFriends(name, id) {
-						console.log("Welcome, " + name + "! ID: " + id);
-			
-						FB.api('/me/friends', 
-                 			function(response) {
+  						console.log("Welcome, " + name + "! ID: " + id);
+  						FB.api('/me/friends', 
+                   		function(response) {
+                   				var friends = new Array();
+                          var count = 0;
+                   				if(response.data) {
+                      				$.each(response.data,function(index,friend) {
+                      					var friendID = friend.id;
+                      					//console.log(friendID);
+                      					friends[count] = friendID;
+                                count++
+                       				});
 
-                 				console.log(response.name);
-                 				var count = 0;
-                 				var friends = new Array();
+                              var userData = {
+                                'name' : name,
+                                'id' : id,
+                                'friendList' : friends
+                              };
 
-
-                 				if(response.data) {
-                    				$.each(response.data,function(index,friend) {
-                    					var friendID = friend.id;
-                    					//console.log(friendID);
-                    					friends[count] = friendID;
-                    					count++;
-                    					if (count > 10) {
-                    						console.log(friends.length);
-                    						window.location.replace("setsession/" + name + "/" + id + "/" + friends);
-                    					}
-                     				});
-                    				//console.log(name + "'s friends: " + friends);
-                    				
-                   				} else {
-                     				console.log("Error!");
-                   				}
-           					}
-           				);
-
-									
-					}
-
-
+                              console.log(userData);
+                              $.post('setsession', userData, 
+                                    function() {
+                                      window.location.replace("chat");
+                                    }
+                              );
+                     			} else {
+                       				console.log("Error!");
+                     			}
+             					}
+             				);
+					  }
   				}
+			</script>
+      <!-- END FACEBOOK SCRIPT -->
 
-			</script>		    	 
 				<div class = "loginBox">
 					<div class = "title">
 						<h1> Spanglish </h1>

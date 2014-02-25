@@ -30,6 +30,47 @@
       <![endif]-->
     </head>
     <body>
+      <!-- START FACEBOOK SCRIPT -->
+        <div id="fb-root"></div>
+        <script>
+          window.fbAsyncInit = function() {
+                FB.init({
+                appId      : '1452060145024625',
+                status     : true, // check login status
+                cookie     : true, // enable cookies to allow the server to access the session
+                xfbml      : true  // parse XFBML
+                });
+
+                FB.getLoginStatus(function(response) {
+                    if (response.status === 'connected') {
+                      // the user is logged in and has authenticated your
+                      // app --> do nothing
+                      console.log("chat.handlebars --> user token live");
+                    } else if (response.status === 'not_authorized') {
+                      // the user is logged in to Facebook, 
+                      // but has not authenticated app
+                      console.log("chat.handlebars --> app not authenticated");
+                      window.location.replace("index");
+                    } else {
+                      // the user isn't logged in to Facebook.
+                      console.log("chat.handlebars --> user not logged in");
+                      window.location.replace("/");
+                    }
+                });
+          };
+
+          // Load the Facebook SDK asynchronously
+          (function(d){
+             var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement('script'); js.id = id; js.async = true;
+             js.src = "//connect.facebook.net/en_US/all.js";
+             ref.parentNode.insertBefore(js, ref);
+          }(document));
+  
+      </script>
+      <!-- END FACEBOOK SCRIPT -->
+
 
 <!--
   Below we include the Login Button social plugin. This button uses the JavaScript SDK to

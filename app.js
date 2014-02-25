@@ -19,6 +19,9 @@ var conversation = require('./routes/conversation');
 var setting = require("./routes/changeSettings");
 var sendmessage = require("./routes/sendMessage");
 var setsession = require("./routes/setSession");
+var deletefriendships = require('./routes/deletefriendships');
+var adduser = require("./routes/addUser");
+var addfriendships = require("./routes/addFriendships");
 
 // Connect to the Mongo database, whether locally or on Heroku
 // MAKE SURE TO CHANGE THE NAME FROM 'lab7' TO ... IN OTHER PROJECTS
@@ -54,7 +57,9 @@ app.get('/', index.view);
 // Example route
 app.get('/chat', chat.view);
 app.get('/conversation/:id', conversation.viewConversation);
-app.get('/setsession/:name/:id/:arr', setsession.setSession);
+app.get('/adduser', adduser.addUser);
+app.get('/addfriendships', addfriendships.addFriendships);
+app.post('/setsession', setsession.setSession);
 app.post("/chat/changeSettings", setting.changeSettings);
 app.post("/chat/sendMessage", sendmessage.send);
 
