@@ -19,6 +19,9 @@ $('input.counties').typeahead({
 
 $('#save').on("click", function() {
 	$('#save-notice').show();
+
+	//$("#sendlang").val("es");
+	
 	console.log("kasjdfhd");
 });
 
