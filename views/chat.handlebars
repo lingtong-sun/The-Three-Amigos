@@ -67,6 +67,14 @@
              js.src = "//connect.facebook.net/en_US/all.js";
              ref.parentNode.insertBefore(js, ref);
           }(document));
+
+          // Logout the user and redirect to the homepage
+          function logout() {
+            console.log("chat.handlebars --> logging out");
+            FB.logout(function(response) {
+              window.location.replace("/");
+            });
+          }
   
       </script>
       <!-- END FACEBOOK SCRIPT -->
@@ -177,6 +185,14 @@
             <label class="col-md-4 control-label" for="save"></label>
             <div class="col-md-4">
               <button id="save" name="save" class="btn btn-inverse">Save Changes</button>
+            </div>
+          </div>
+
+          <!-- Button -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="save"></label>
+            <div class="col-md-4">
+              <button id="save" name="save" class="btn btn-inverse" onclick = "logout()">Log Out</button>
             </div>
           </div>
 
