@@ -19,7 +19,6 @@ var conversation = require('./routes/conversation');
 var setting = require("./routes/changeSettings");
 var sendmessage = require("./routes/sendMessage");
 var setsession = require("./routes/setSession");
-var deletefriendships = require('./routes/deletefriendships');
 var adduser = require("./routes/addUser");
 var addfriendships = require("./routes/addFriendships");
 
