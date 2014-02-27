@@ -6,16 +6,11 @@ $(document).ready(function() {
 		window.document.location = $(this).attr("href");
 	});
 
-
-  console.log("hello?");
-
-$('#save').on("click", function() {
-	$('#save-notice').show();
-
-	//$("#sendlang").val("es");
-	
-	console.log("kasjdfhd");
-});
+	$('#save').on("click", function() {
+		
+		$('#save-notice').show();	
+		$('#settings1').addClass("active");		
+	});
 
 
 })

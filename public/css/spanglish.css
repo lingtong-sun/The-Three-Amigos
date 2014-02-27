@@ -99,9 +99,6 @@
 	float: left;
 }
 
-.search-button, .search-field {
-}
-
 body { 
 	padding-top: 70px; 
 	padding-bottom: 70px; 
@@ -116,4 +113,17 @@ body {
 
 .hidden {
 	display: none;
+}
+
+.form-control:focus, .form-control:focus + span .btn{
+    border-color:#1ABC9C;
+}
+
+.form-control:focus + span .btn {
+	background-color: #1ABC9C;
+}
+
+#logout {
+	text-align: center;
+	margin: 20px;
 }
