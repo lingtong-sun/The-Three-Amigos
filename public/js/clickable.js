@@ -7,19 +7,11 @@ $(document).ready(function() {
 	});
 
 	$('#save').on("click", function() {
-		$('#save-notice').show();
+		
+		$('#save-notice').show();	
 
-	//$("#sendlang").val("es");
-	
-	console.log("kasjdfhd");
-
-
-
-	$('#messagetext').on('focus', function() {
-		console.log($(this).parent);
-		console.log("hellow world")
-	})
-});
+		$('#settings1').addClass("active");		
+	});
 
 
 })

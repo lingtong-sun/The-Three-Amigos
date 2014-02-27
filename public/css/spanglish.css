@@ -121,5 +121,9 @@ body {
 
 .form-control:focus + span .btn {
 	background-color: #1ABC9C;
+}
 
+#logout {
+	text-align: center;
+	margin: 20px;
 }
