@@ -59,9 +59,16 @@
 
 .from-date p {
 	margin:0px;
-	font-size: 10px;
+	font-size: 8px;
 	color: #6b6b6b;
 }
+
+.from-date h5 {
+	font-size: 12px;
+	margin:2px;
+
+}
+
 
 .message p {
 	margin:0px;

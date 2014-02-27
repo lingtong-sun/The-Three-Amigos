@@ -32,7 +32,7 @@
 	  		
 	  		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 	  			<div class="container-fluid back-button">
-	  				<p><a href="../chat"><span class="glyphicon glyphicon-chevron-left"></span></a> {{name}} </p>
+	  				<p><a href="../chat"><span class="glyphicon glyphicon-chevron-left"></span></a> {{friend.name}} </p>
 	  			</div>
 	  		</nav>
 	  		
@@ -43,7 +43,7 @@
 	  			<div class="message well {{type}}">
 	  				<img class="img-circle convo-pic" src="{{message.sender.image}}"/>
 	  				<div class="from-date">
-	  					<p>{{message.sender.name}}</p>
+	  					<h5>{{message.sender.name}}</h5>
 	  					<p>{{message.send_time}}</p>
 	  				</div>
 	  				
@@ -54,12 +54,22 @@
 
 	  		<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
 	  			<div class="container-fluid">
-	  				<div class="input-group navbar-btn">
+	  				 <div class="input-group navbar-btn">
 	  					<input id="messagetext" type="text" class="form-control">
 	  					<span class="input-group-btn">
 	  						<button id="sendmessage" class="btn btn-default" type="button">Send</button>
 	  					</span>
-	  				</div><!-- /input-group -->
+	  				</div> <!-- /input-group -->
+
+	  				<!--<div class="input-group">
+	  					<input type="text" class="form-control">
+
+
+	  					<span class="input-group-btn">
+	  						<button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+	  					</span>
+	  				</div> input-group -->
+
 	  			</div>
 	  		</nav>
 
