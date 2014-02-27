@@ -226,7 +226,7 @@
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="recipient">Recipient</label>  
                   <div class="col-md-6">
-                    <input id="recipient" name="recipient" type="text" placeholder="" class="form-control input-md" required="">
+                    <input id="recipient" name="recipient" type="text" placeholder="Recipient" class="form-control input-md typeahead" data-provide="typeahead" required>
                   </div>
                 </div>
 
@@ -234,13 +234,13 @@
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="message">Message</label>
                   <div class="col-md-4">                     
-                    <textarea class="form-control" id="message" name="message"></textarea>
+                    <textarea class="form-control" id="message" name="message" required></textarea>
                   </div>
                 </div>
                 <div class="centered form-group">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
-                  <button type="button" id="sendmessage" class="btn btn-primary" data-dismiss="modal">Send message</button>
+                  <input type="submit" id="sendmessage" value="Send Message" class="btn btn-primary"></input>
                 </div>
               </fieldset>
             </form>
@@ -270,11 +270,10 @@
     <script src="http://vjs.zencdn.net/4.3/video.js"></script>
     <script src="flat-ui/js/application.js"></script>
     <script src="js/clickable.js"></script>
-    <script src="js/index.js"></script>
     <script src="typeahead.js/typeahead.bundle.js"></script>
-    <script src="typeahead.js/typeahead.jquery.js"></script>
-
-
+    <script src="./node_modules/hogan.js/lib/hogan.js" type="text/javascript"></script>
+    <script src="js/index.js"></script>
+    
 
   </body>
   </html>

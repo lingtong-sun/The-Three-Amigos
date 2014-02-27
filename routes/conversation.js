@@ -22,7 +22,7 @@ exports.viewConversation = function(req, res){
 
 	function afterFindFriend(err, friend) {
 		if(err) console.log(err);
-
+		if (friend == null) return;
 		models.Message
 			.find({"conversation": friend['conversation_id']})
 			.populate("sender")

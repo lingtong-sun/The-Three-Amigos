@@ -5,12 +5,40 @@ $(document).ready(function() {
 	initializePage();
 })
 
+var friends = new Bloodhound({
+  datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.name); },
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  limit: 10, 
+  prefetch: {
+    url: '/querydatabase',
+    ttl: '0',
+  }
+});
+ 
+// initialize the bloodhound suggestion engine
+friends.initialize();
+
 /*
  * Function that is called when the document is ready.
  */
 function initializePage() {
 	$("#settingform").submit(formSubmit);
-	$("#sendmessage").click(newMessage);
+	$("#messageform").submit(newMessage);
+	$("#recipient").typeahead(null, {
+		name: 'friends',
+  		displayKey: 'name',
+  		source: friends.ttAdapter(),
+  		templates: {
+  			suggestion: function(friend){
+  				return '<div>'
+  						+'<img src="'+friend.image+'" style="float:left">'
+  						+'<p>' + friend.name + '</p>'
+  						+'</div>';
+  			}
+  		},
+   		autoselect: true,
+   		highlight: true,
+	});
 }
 
 function newMessage(e) {
@@ -19,7 +47,6 @@ function newMessage(e) {
 	var form = $("#messageform");
 	console.log(form.serialize());
 	$.post(form.attr("action"), form.serialize(), displayResults);
-	
 }
 
 function formSubmit(e){
@@ -31,8 +58,15 @@ function formSubmit(e){
 }
 
 function displayResults (result) {
-	console.log(result);
-	location.href = "/conversation/"+result["_id"];
+//	console.log(result);
+	if(result == "") {
+		console.log("ERROR");
+		//need to display error msg TODO
+	} else{
+		location.href = "/conversation/"+result["_id"];
+	}
+	
+	
 //	location.reload();
 }
 

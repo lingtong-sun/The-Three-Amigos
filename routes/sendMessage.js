@@ -26,10 +26,12 @@ function verifyUsers(req, res) {
   function afterFindUser(err, user) {
     if (err) console.log(err);
     if (user == null) {
+      console.log(user);
       recipient = null;
+      res.send();
       return; //MOAR ERROR CHECKING
     }
-    console.log(user);
+    console.log("WHYYYYYY");
 
     recipient = user['_id'];
     translate(req, res, recipient);

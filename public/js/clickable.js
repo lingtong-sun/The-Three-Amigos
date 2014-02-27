@@ -9,14 +9,6 @@ $(document).ready(function() {
 
   console.log("hello?");
 
-$('input.counties').typeahead({
-      name: 'countries',
-      local: ["Unites States", "Mexico", "Canada", "Cuba", "Guatemala"]
-}).on('typeahead:selected', function(event, datum) {
-	console.log("meow");
-});
-
-
 $('#save').on("click", function() {
 	$('#save-notice').show();
 
