@@ -31,9 +31,11 @@ function formSubmit(e){
 }
 
 function displayResults (result) {
-	location.reload();
+	console.log(result);
+	location.href = "/conversation/"+result["_id"];
+//	location.reload();
 }
 
 function displaySettingResults (result) {
-
+	location.reload();
 }
