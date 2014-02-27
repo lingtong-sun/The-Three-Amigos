@@ -32,7 +32,7 @@ function formSubmit(e){
 
 function displayResults (result) {
 	console.log(result);
-	location.href = "/conversation/"+result["_id"]+"#bottom";
+	location.href = "/conversation/"+result["_id"];
 //	location.reload();
 }
 

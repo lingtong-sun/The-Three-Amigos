@@ -5,11 +5,15 @@ $(document).ready(function() {
 	initializePage();
 })
 
+$( window ).load(function() {
+      window.scrollTo(0, $(document).height());
+ });
 /*
  * Function that is called when the document is ready.
  */
 function initializePage() {
 	$("#sendmessage").click(sendMessage);
+	window.scrollTo(0, $(document).height());
 }
 
 
@@ -22,7 +26,6 @@ function sendMessage(e) {
 	$.post("/chat/sendMessage", params, displayResults);
 }
 
-function displayResults(results) {
-	console.log("RELOAD THIS SHIT");
-	location.reload();
+function displayResults(result) {
+	location.href = "/conversation/"+result["_id"];
 }
