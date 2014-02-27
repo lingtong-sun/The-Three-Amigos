@@ -111,7 +111,7 @@
 
       <table>
         {{#each messages}}
-        <tr class="friend convo-link" href="/conversation/{{friend._id}}">
+        <tr class="friend convo-link" href="/conversation/{{friend._id}}#bottom">
           <td class="pic" rowspan=2><img class="img-responsive img-circle" src="{{friend.image}}"/></td>
           <td>{{friend.name}}</td>
         </tr>
@@ -151,6 +151,15 @@
         <img class="img-circle bigger-pic" src="{{curr_user.image}}"/>
       </div>
 
+         <!-- Button -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="save"></label>
+            <div class="col-md-4">
+              <button id="save" name="save" class="btn btn-inverse" onclick = "logout()">Log Out</button>
+            </div>
+          </div>
+      
+
       <div style="display: none ;" id="save-notice" class="alert alert-warning fade in">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> Changes saved!
       </div>
@@ -185,14 +194,6 @@
             <label class="col-md-4 control-label" for="save"></label>
             <div class="col-md-4">
               <button id="save" name="save" class="btn btn-inverse">Save Changes</button>
-            </div>
-          </div>
-
-          <!-- Button -->
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="save"></label>
-            <div class="col-md-4">
-              <button id="save" name="save" class="btn btn-inverse" onclick = "logout()">Log Out</button>
             </div>
           </div>
 

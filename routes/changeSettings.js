@@ -30,4 +30,3 @@ exports.changeSettings = function(req, res){
 };
 
 
-
