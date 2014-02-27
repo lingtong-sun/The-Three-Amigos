@@ -114,7 +114,7 @@ function translate(req, res, recipient) {
 
           function afterSaving(err) {
             if(err) console.log(err);
-            res.send();
+            res.send(friendship['user_two']);
             //res.redirect("/conversation/"+friendship['user_two']['_id']);
           }
           //send the message into the database
