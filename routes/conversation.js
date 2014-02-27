@@ -16,6 +16,7 @@ exports.viewConversation = function(req, res){
 	models.Friend
 	.findOne({"user_one": my_id,
 			"user_two": friend_id})
+	.populate("user_two")
 	.exec(afterFindFriend);
 
 
@@ -47,7 +48,8 @@ exports.viewConversation = function(req, res){
 				
 			}
 			console.log(db_messages);
-			res.render('conversation', {"messages": db_messages});
+			console.log(friend["user_two"]);
+			res.render('conversation', {"messages": db_messages, "friend": friend["user_two"]});
 		}
 	}
 

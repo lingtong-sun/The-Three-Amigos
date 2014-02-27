@@ -36,5 +36,4 @@ function displayResults (result) {
 
 function displaySettingResults (result) {
 
-	location.reload();
 }
