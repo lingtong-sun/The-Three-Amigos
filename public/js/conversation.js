@@ -6,14 +6,14 @@ $(document).ready(function() {
 })
 
 $( window ).load(function() {
-      window.scrollTo(0, $(document).height());
+     // window.scrollTo(0, $(document).height());
  });
 /*
  * Function that is called when the document is ready.
  */
 function initializePage() {
 	$("#sendmessage").click(sendMessage);
-	window.scrollTo(0, $(document).height());
+	//window.scrollTo(0, $(document).height());
 }
 
 
