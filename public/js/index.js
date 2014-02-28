@@ -11,7 +11,7 @@ var friends = new Bloodhound({
   limit: 10, 
   prefetch: {
     url: '/querydatabase',
-    ttl: '0',
+    ttl: 0,
   }
 });
  
