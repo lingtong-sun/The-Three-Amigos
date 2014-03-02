@@ -12,8 +12,10 @@
   <link href="flat-ui/bootstrap/css/bootstrap.css" rel="stylesheet">
 
   <!-- Loading Flat UI -->
-  <link href="flat-ui/css/flat-ui.css" rel="stylesheet">
-  <link href="flat-ui/css/demo.css" rel="stylesheet">
+  {{#if versionA}}  
+    <link href="flat-ui/css/flat-ui.css" rel="stylesheet">
+    <link href="flat-ui/css/demo.css" rel="stylesheet">
+  {{/if}}
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
@@ -35,7 +37,7 @@
       <script>
       window.fbAsyncInit = function() {
         FB.init({
-          appId      : '1452060145024625',
+                appId      : '1452060145024625',
                 status     : true, // check login status
                 cookie     : true, // enable cookies to allow the server to access the session
                 xfbml      : true  // parse XFBML
@@ -57,7 +59,7 @@
                       window.location.replace("/");
                     }
                   });
-      };
+        };
 
           // Load the Facebook SDK asynchronously
           (function(d){
@@ -74,6 +76,14 @@
             FB.logout(function(response) {
               window.location.replace("/");
             });
+          }
+
+          function invite() {
+            console.log("chat.handlebars --> inviting friends");
+            FB.ui({method: 'apprequests',
+              message: 'Hey! Join Spanglish with me so we can chat together and learn a new language!'
+              }, function(response) {console.log("chat.handlebars --> invited " + response);}
+            );
           }
 
           </script>
@@ -150,7 +160,8 @@
 
       <button id="logout" class="btn btn-inverse" onclick = "logout()">Log Out</button>
    
-      
+      <button id="invite" class="btn btn-inverse" onclick = "invite()">Invite Friends</button>
+
 
       <div style="display: none ;" id="save-notice" class="alert alert-warning fade in">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> Changes saved!
@@ -222,7 +233,7 @@
         <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
           <div class="container-fluid">
 
-            <a href="#fakelink" class="btn btn-block btn-lg btn-primary navbar-btn" data-toggle="modal" data-target="#new-msg">New Message <i class="fa fa-envelope"></i></span>
+            <a href="#fakelink" id = "newmessage" class="btn btn-block btn-lg btn-primary navbar-btn" data-toggle="modal" data-target="#new-msg">New Message <i class="fa fa-envelope"></i></span>
             </a>
 
           </div>
@@ -290,6 +301,14 @@
         <script src="js/index.js"></script>
 
 
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+          ga('create', 'UA-48453636-2', {'cookieDomain' : 'none'});
+          ga('send', 'pageview');
+        </script>
       </body>
       </html>

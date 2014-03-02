@@ -5,6 +5,8 @@ $(document).ready(function() {
 	initializePage();
 })
 
+
+
 var friends = new Bloodhound({
   datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.name); },
   queryTokenizer: Bloodhound.tokenizers.whitespace,
@@ -39,6 +41,16 @@ function initializePage() {
    		autoselect: true,
    		highlight: true,
 	});
+	// Google Analytics Code
+	$("#invite").click(function(e) {
+		e.preventDefault();
+		ga('send', 'event', 'Invite Friend Button', 'click');
+	});
+	$("#newmessage").click(function(e) {
+		e.preventDefault();
+		ga('send', 'event', 'New Message Button', 'click');
+	});
+
 }
 
 function newMessage(e) {

@@ -3,6 +3,7 @@ var models = require('../models');
 
 exports.view = function(req, res){
   console.log("chat.js --> " + req.session.user_name + " has ID: " + req.session.user_id);
+
   var friendList = req.session.friends;
   //console.log("Friends: " + friendList);
 
@@ -22,8 +23,13 @@ exports.view = function(req, res){
    //	console.log(me);
    	if(my_profile!=undefined && db_users!=undefined && message_counter==0) {
    		//console.log(db_messages);
- 		res.render('chat', {"users": db_users, "curr_user": my_profile,
- 				 "messages": db_messages})
+      if(req.session.versionA) {
+ 		     res.render('chat', {"users": db_users, "curr_user": my_profile,
+ 				 "messages": db_messages, "versionA" : true})
+      } else {
+        res.render('chat', {"users": db_users, "curr_user": my_profile,
+         "messages": db_messages, "versionA" : false})
+      }
  	}  	
   }
 
@@ -58,16 +64,26 @@ exports.view = function(req, res){
     		message_counter--;
     		if(my_profile!=undefined && db_users!=undefined && message_counter==0) {
     //			console.log(db_messages);
- 				res.render('chat', {"users": db_users, "curr_user": my_profile,
- 							 "messages": db_messages})
- 			}  	
+     				if(req.session.versionA) {
+              res.render('chat', {"users": db_users, "curr_user": my_profile,
+              "messages": db_messages, "versionA" : true})
+            } else {
+              res.render('chat', {"users": db_users, "curr_user": my_profile,
+              "messages": db_messages, "versionA" : false})
+            }
+        }  	
     	}
     }
 
  	if(my_profile!=undefined && db_users!=undefined && message_counter==0) {
  	//	console.log(db_messages);
- 		res.render('chat', {"users": db_users, "curr_user": my_profile,
- 					 "messages": db_messages})
+ 		if(req.session.versionA) {
+      res.render('chat', {"users": db_users, "curr_user": my_profile,
+      "messages": db_messages, "versionA" : true})
+    } else {
+      res.render('chat', {"users": db_users, "curr_user": my_profile,
+      "messages": db_messages, "versionA" : false})
+    }
  	}  	
   }
 };

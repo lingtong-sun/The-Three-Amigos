@@ -54,6 +54,7 @@ if ('development' == app.get('env')) {
 
 // Add routes here
 app.get('/', index.view);
+app.get('/B', index.viewAlt);
 // Example route
 app.get('/chat', chat.view);
 app.get('/conversation/:id', conversation.viewConversation);

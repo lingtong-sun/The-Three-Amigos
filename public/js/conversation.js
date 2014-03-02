@@ -19,6 +19,8 @@ function initializePage() {
 
 function sendMessage(e) {
 	e.preventDefault();
+	ga('send', 'event', 'Send Message in Convo Button', 'click');
+
 	var textbox = $("#messagetext");
 	console.log("SEND MESSAGE");
 	var params = "recipient=" + "" + "&message="+textbox.val();
