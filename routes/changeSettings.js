@@ -22,12 +22,8 @@ exports.changeSettings = function(req, res){
 		if(err) console.log(err);
 		console.log(user);
 		console.log("UPDATED");
-		//$("#sendlang").val(body.sendlang);
-		//document.getElementById('#sendlang').selectedIndex = body.sendlang;
-		res.send();
-
+		//res.send();
 	}
 };
-
 
 

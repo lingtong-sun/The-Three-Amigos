@@ -19,9 +19,9 @@ exports.view = function(req, res){
   function setFriend(err, me) {
    	if (err) console.log(err);
    	my_profile = me;
-   	console.log(me);
+   //	console.log(me);
    	if(my_profile!=undefined && db_users!=undefined && message_counter==0) {
-   		console.log(db_messages);
+   		//console.log(db_messages);
  		res.render('chat', {"users": db_users, "curr_user": my_profile,
  				 "messages": db_messages})
  	}  	
@@ -34,7 +34,7 @@ exports.view = function(req, res){
 
   function afterFindFriends(err, friends) {
     if(err) console.log(err);
-    console.log(friends);
+  //  console.log(friends);
     db_users = friends;
     for (var i=0; i < friends.length; i++) {
     	if (friends[i]['conversation_id'] >= 0) message_counter++;
@@ -57,7 +57,7 @@ exports.view = function(req, res){
     		db_messages.push({"friend": friend, "message": messages[0]});
     		message_counter--;
     		if(my_profile!=undefined && db_users!=undefined && message_counter==0) {
-    			console.log(db_messages);
+    //			console.log(db_messages);
  				res.render('chat', {"users": db_users, "curr_user": my_profile,
  							 "messages": db_messages})
  			}  	
@@ -65,7 +65,7 @@ exports.view = function(req, res){
     }
 
  	if(my_profile!=undefined && db_users!=undefined && message_counter==0) {
- 		console.log(db_messages);
+ 	//	console.log(db_messages);
  		res.render('chat', {"users": db_users, "curr_user": my_profile,
  					 "messages": db_messages})
  	}  	

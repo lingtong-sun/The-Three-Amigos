@@ -59,9 +59,16 @@
 
 .from-date p {
 	margin:0px;
-	font-size: 10px;
+	font-size: 8px;
 	color: #6b6b6b;
 }
+
+.from-date h5 {
+	font-size: 12px;
+	margin:2px;
+
+}
+
 
 .message p {
 	margin:0px;
@@ -92,9 +99,6 @@
 	float: left;
 }
 
-.search-button, .search-field {
-}
-
 body { 
 	padding-top: 70px; 
 	padding-bottom: 70px; 
@@ -109,4 +113,17 @@ body {
 
 .hidden {
 	display: none;
+}
+
+.form-control:focus, .form-control:focus + span .btn{
+    border-color:#1ABC9C;
+}
+
+.form-control:focus + span .btn {
+	background-color: #1ABC9C;
+}
+
+#logout {
+	text-align: center;
+	margin: 20px;
 }
