@@ -2,6 +2,37 @@
 
 <html lang="en">
 <head>
+
+<!-- Google Analytics Content Experiment code -->
+<script>function utmx_section(){}function utmx(){}(function(){var
+k='82861358-1',d=document,l=d.location,c=d.cookie;
+if(l.search.indexOf('utm_expid='+k)>0)return;
+function f(n){if(c){var i=c.indexOf(n+'=');if(i>-1){var j=c.
+indexOf(';',i);return escape(c.substring(i+n.length+1,j<0?c.
+length:j))}}}var x=f('__utmx'),xx=f('__utmxx'),h=l.hash;d.write(
+'<sc'+'ript src="'+'http'+(l.protocol=='https:'?'s://ssl':
+'://www')+'.google-analytics.com/ga_exp.js?'+'utmxkey='+k+
+'&utmx='+(x?x:'')+'&utmxx='+(xx?xx:'')+'&utmxtime='+new Date().
+valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
+'" type="text/javascript" charset="utf-8"><\/sc'+'ript>')})();
+</script><script>utmx('url','A/B');</script>
+<!-- End of Google Analytics Content Experiment code -->
+
+<!-- Google Analytics Content Experiment code -->
+<script>function utmx_section(){}function utmx(){}(function(){var
+k='82861358-2',d=document,l=d.location,c=d.cookie;
+if(l.search.indexOf('utm_expid='+k)>0)return;
+function f(n){if(c){var i=c.indexOf(n+'=');if(i>-1){var j=c.
+indexOf(';',i);return escape(c.substring(i+n.length+1,j<0?c.
+length:j))}}}var x=f('__utmx'),xx=f('__utmxx'),h=l.hash;d.write(
+'<sc'+'ript src="'+'http'+(l.protocol=='https:'?'s://ssl':
+'://www')+'.google-analytics.com/ga_exp.js?'+'utmxkey='+k+
+'&utmx='+(x?x:'')+'&utmxx='+(xx?xx:'')+'&utmxtime='+new Date().
+valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
+'" type="text/javascript" charset="utf-8"><\/sc'+'ript>')})();
+</script><script>utmx('url','A/B');</script>
+<!-- End of Google Analytics Content Experiment code -->
+
   <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
 
   <meta name="apple-mobile-web-app-capable" content="yes">	  
@@ -15,15 +46,17 @@
 	  <link href="css/landing.css" rel="stylesheet">
 
 	  <!-- Loading Flat UI -->
-    {{#if versionA}}
 	   <link href="flat-ui/css/flat-ui.css" rel="stylesheet">
 	   <link href="flat-ui/css/demo.css" rel="stylesheet">
 
 	   <link rel="shortcut icon" href="flat-ui/flat-ui/images/favicon.ico">
 
-     <link href='http://fonts.googleapis.com/css?family=Delius' rel='stylesheet' type='text/css'>
-    {{/if}}
-
+{{#if versionA}} 
+  <link href="css/spanglish.css" rel="stylesheet">
+{{else}}
+  <link href="css/spanglish2.css" rel="stylesheet">
+       <link href='http://fonts.googleapis.com/css?family=Delius' rel='stylesheet' type='text/css'>
+{{/if}}
 	  <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
 	    <!--[if lt IE 9]>
 	      <script src="flat-ui/js/html5shiv.js"></script>
@@ -108,7 +141,7 @@
 				<div class = "loginBox">
 					<div class = "title">
 						<h1> Spanglish </h1>
-						<h6> Learn with Friends </h6>
+						<h4> Learn with Friends </h4>
 					</div>
 
 					<hr>
@@ -142,7 +175,7 @@
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-          ga('create', 'UA-48453636-2', {'cookieDomain' : 'none'});
+          ga('create', 'UA-48453636-2', 'spanglish.herokuapp.com');
           ga('send', 'pageview');
       </script>
 

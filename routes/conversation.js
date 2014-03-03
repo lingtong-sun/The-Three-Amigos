@@ -32,7 +32,11 @@ exports.viewConversation = function(req, res){
 		function afterFindMessages(err, messages) {
 			if(err) console.log(err);
 			if (messages.length == 0) {
-				res.render('conversation', {"messages": db_messages});
+				if(req.session.versionA) {
+					res.render('conversation', {"messages": db_messages ,"versionA" : true});
+				} else {
+					res.render('conversation', {"messages": db_messages ,"versionA" : false});
+				}
 			}
 			for (var i=0; i < messages.length; i++) {
 				if(messages[i]['conversation'] < 0)
@@ -49,7 +53,12 @@ exports.viewConversation = function(req, res){
 			}
 			console.log(db_messages);
 			console.log(friend["user_two"]);
-			res.render('conversation', {"messages": db_messages, "friend": friend["user_two"]});
+			if (req.session.versionA) {
+				res.render('conversation', {"messages": db_messages, "friend": friend["user_two"], "versionA" : true});
+			} else {
+				res.render('conversation', {"messages": db_messages, "friend": friend["user_two"], "versionA" : false});
+			}
+
 		}
 	}
 

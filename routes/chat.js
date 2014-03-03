@@ -3,12 +3,12 @@ var models = require('../models');
 
 exports.view = function(req, res){
   console.log("chat.js --> " + req.session.user_name + " has ID: " + req.session.user_id);
+  console.log("chat.js --> start time var: " + req.session.startTime);
 
   var friendList = req.session.friends;
   //console.log("Friends: " + friendList);
 
   var current_user = req.session.user_id;
-  console.log("chat.js --> ID: " + current_user);
   var db_users;
   var db_messages = new Array();
   var my_profile;

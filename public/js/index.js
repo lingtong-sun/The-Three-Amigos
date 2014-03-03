@@ -82,6 +82,10 @@ function displayResults (result) {
 //	location.reload();
 }
 
+function checkTime() {
+	console.log("index.js --> time reached");
+}
+
 function displaySettingResults (result) {
 	location.reload();
 }
