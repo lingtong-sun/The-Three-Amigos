@@ -6,6 +6,11 @@
 	margin-right:10px;
 }
 
+tr.friend, .bottom td {
+	background-color: white;
+	opacity:0.85;
+}
+
 .pic {
 	width: 55px;
 }
@@ -114,13 +119,12 @@
 body { 
 	padding-top: 70px; 
 	padding-bottom: 70px; 
-	background-image:url('../images/subtle_zebra_3d.png');
+	background-image:url('../images/testBG.png');
 	background-repeat:repeat;
 }
 
 .navbar-default {
-	background-color: #dedede;
-	opacity:0.95;
+	background-color: #62C796;
 }
 
 .hidden {
@@ -144,3 +148,43 @@ body {
 	text-align: center
 }
 
+* {
+	font-family: 'Delius', cursive;
+	color:white;
+}
+
+.well {
+	opacity:0.80;
+}
+
+.testing .nav-pills > li.active {
+	background-color: #469971;
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+  color: white;
+  background-color: #469971;
+}
+
+#newmessage {
+	background-color: #469971
+}
+
+tr, td, .message h5, .message p {
+	color: black
+}
+
+.form-group {
+	margin-top: 0px;
+}
+
+.modal label {
+	color: black;
+}
+
+.title h1{
+	color: #469971
+	
+}

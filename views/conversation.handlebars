@@ -2,8 +2,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
 
+  <meta name="apple-mobile-web-app-capable" content="yes">	 
 	<meta charset="utf-8">
 	<title>Spanglish</title>
 	<meta name="description" content=""/>
@@ -15,7 +16,11 @@
 	<link href="../flat-ui/css/flat-ui.css" rel="stylesheet">
 	<link href="../flat-ui/css/demo.css" rel="stylesheet">
 
-	<link href="../css/spanglish.css" rel="stylesheet">
+	<link href="../css/spanglish2.css" rel="stylesheet">
+	     <link href='http://fonts.googleapis.com/css?family=Delius' rel='stylesheet' type='text/css'>
+	  
+	<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+
 
 
 	<link rel="shortcut icon" href="../flat-ui/flat-ui/images/favicon.ico">
@@ -31,7 +36,8 @@
 	  		
 	  		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 	  			<div class="container-fluid back-button">
-	  				<p><a href="../chat"><span class="glyphicon glyphicon-chevron-left"></span></a> {{friend.name}} </p>
+	  				<a class="click-area" href="../chat"><i class="fa fa-chevron-left fa-lg"></i></a>
+	  				<p class="name">{{friend.name}} </p>
 	  			</div>
 	  		</nav>
 	  		

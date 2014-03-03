@@ -2,8 +2,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
   <meta charset="utf-8">
   <title>Spanglish</title>
   <meta name="description" content=""/>
@@ -19,8 +22,10 @@
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+  
 
-  <link href="css/spanglish.css" rel="stylesheet">
+  <link href="css/spanglish2.css" rel="stylesheet">
+       <link href='http://fonts.googleapis.com/css?family=Delius' rel='stylesheet' type='text/css'>
 
 
   <link rel="shortcut icon" href="flat-ui/flat-ui/images/favicon.ico">
@@ -102,9 +107,9 @@
 
        <!-- Nav tabs -->
        <ul class="nav nav-pills nav-justified navbar-btn">
-        <li id="chats1" class="active"><a class="col-xs-4" href="#chats" data-toggle="tab"><i class="fa fa-comments"></i></a></li>
-        <li id="friends1"><a class="col-xs-4" href="#friends" data-toggle="tab"><i class="fa fa-users"></i></a></li>
-        <li id="settings1"><a class="col-xs-4" href="#settings" data-toggle="tab"><i class="fa fa-cog"></i></a></li>
+        <li id="chats1" class="active"><a class="col-xs-4" href="#chats" data-toggle="tab"><i class="fa fa-comments fa-lg"></i></a></li>
+        <li id="friends1"><a class="col-xs-4" href="#friends" data-toggle="tab"><i class="fa fa-users fa-lg"></i></a></li>
+        <li id="settings1"><a class="col-xs-4" href="#settings" data-toggle="tab"><i class="fa fa-cog fa-lg"></i></a></li>
       </ul>
 
     </div>
@@ -158,9 +163,7 @@
         <img class="img-circle bigger-pic" src="{{curr_user.image}}"/>
       </div>
 
-      <button id="logout" class="btn btn-inverse" onclick = "logout()">Log Out</button>
    
-      <button id="invite" class="btn btn-inverse" onclick = "invite()">Invite Friends</button>
 
 
       <div style="display: none ;" id="save-notice" class="alert alert-warning fade in">
@@ -170,6 +173,7 @@
 
       <form id="settingform" class="form-horizontal" action="chat/changeSettings">
         <fieldset>
+      <button id="invite" class="btn btn-inverse" onclick = "invite()">Invite Friends</button>
 
           <!-- Select Basic -->
           <div class="form-group">
@@ -218,12 +222,10 @@
               </script>
 
               <!-- Button -->
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="save"></label>
-                <div class="col-md-4">
+            
                   <button id="save" name="save" class="btn btn-inverse">Save Changes</button>
-                </div>
-              </div>
+                
+            
             </fieldset>
           </form>
 
