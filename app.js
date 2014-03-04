@@ -22,6 +22,7 @@ var setsession = require("./routes/setSession");
 var adduser = require("./routes/addUser");
 var addfriendships = require("./routes/addFriendships");
 var querydatabase = require("./routes/queryDatabase");
+var querymessages = require("./routes/queryMessages");
 
 // Connect to the Mongo database, whether locally or on Heroku
 // MAKE SURE TO CHANGE THE NAME FROM 'lab7' TO ... IN OTHER PROJECTS
@@ -64,6 +65,7 @@ app.post('/setsession', setsession.setSession);
 app.post("/chat/changeSettings", setting.changeSettings);
 app.post("/chat/sendMessage", sendmessage.send);
 app.get('/querydatabase', querydatabase.queryDatabase);
+app.get('/queryMessages', querymessages.queryMessages);
 
 
 http.createServer(app).listen(app.get('port'), function(){
