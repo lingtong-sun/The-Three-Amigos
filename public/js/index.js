@@ -46,15 +46,14 @@ function initializePage() {
 		e.preventDefault();
 		ga('send', 'event', 'Invite Friend Button', 'click');
 	});
-	$("#newmessage").click(function(e) {
-		e.preventDefault();
-		ga('send', 'event', 'New Message Button', 'click');
-	});
 
 }
 
 function newMessage(e) {
 	e.preventDefault();
+
+	ga('send', 'event', 'New Message Button', 'click');
+
 	console.log("NEW MSG");
 	var form = $("#messageform");
 	console.log(form.serialize());
@@ -80,10 +79,6 @@ function displayResults (result) {
 	
 	
 //	location.reload();
-}
-
-function checkTime() {
-	console.log("index.js --> time reached");
 }
 
 function displaySettingResults (result) {
