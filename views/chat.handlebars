@@ -53,13 +53,10 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
   
-{{#if versionA}} 
   <link href="css/spanglish.css" rel="stylesheet">
-{{else}}
-  <link href="css/spanglish2.css" rel="stylesheet">
-       <link href='http://fonts.googleapis.com/css?family=Delius' rel='stylesheet' type='text/css'>
-{{/if}}
 
+
+<link href='http://fonts.googleapis.com/css?family=Delius' rel='stylesheet' type='text/css'>
   <link rel="shortcut icon" href="flat-ui/flat-ui/images/favicon.ico">
 
   <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
@@ -265,7 +262,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 
         </div>
 
-
+        {{#if versionA}}
         <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
           <div class="container-fluid">
 
@@ -274,6 +271,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 
           </div>
         </nav>
+        {{/if}} 
 
         <div class="modal fade bs-modal-sm" id="new-msg">
           <div class="modal-dialog">
