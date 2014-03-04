@@ -8,14 +8,12 @@ exports.viewConversation = function(req, res){
 
 	var friend_id = req.params.id;
 	var my_id = req.session.user_id;
+
 	console.log("conversation: "+ friend_id);
 	//set recipient for message on this page
 	req.session.recipient = friend_id;
 
 	var db_messages = new Array();
-
-	var friend_profile;
-	var my_profile;
 
 	models.Friend
 	.findOne({"user_one": my_id,

@@ -3,6 +3,7 @@
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
 	initializePage();
+	setInterval("updateConversation(), 10000");
 })
 
 $( window ).load(function() {
@@ -15,6 +16,31 @@ function initializePage() {
 	$("#sendmessage").click(sendMessage);
 	window.scrollTo(0, $(document).height());
 }
+
+function updateConversation() {
+	$.get("/queryMessages", displayMessages);
+
+	function displayMessages(result){
+		$("#conversationbody").html();
+		for(var i=0; i < result.messages.length; i++) {
+			var message = result.messages[i].message;
+			$("#conversationbody").append(
+				'<div class="message well ' + result.messages[i].type+ '">'+
+	  				'<img class="img-circle convo-pic" src="' + message.sender.image+ '"/>' +
+	  				'<div class="from-date">'
+	  					+'<h5>' + message.sender.name+ '</h5>'+
+	  					'<p>' + message.send_time+ '</p>' +
+	  				'</div>'+
+	  				'<p class="msg-text">' + message.translated+ '</p>'+
+	  			'</div>'
+			);
+		}	
+		window.scrollTo(0, $(document).height());
+	//	console.log("HELLO");
+	}
+}
+
+
 
 function sendMessage(e) {
 	e.preventDefault();
