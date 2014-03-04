@@ -171,10 +171,11 @@
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> Changes saved!
       </div>
 
+      <button id="invite" class="btn btn-inverse" onclick = "invite()">Invite Friends</button>
+
 
       <form id="settingform" class="form-horizontal" action="chat/changeSettings">
         <fieldset>
-      <button id="invite" class="btn btn-inverse" onclick = "invite()">Invite Friends</button>
 
           <!-- Select Basic -->
           <div class="form-group">
@@ -222,9 +223,14 @@
               
               </script>
 
-              <!-- Button -->
+             <!-- Button -->
+               <div class="form-group">
+                 <label class="col-md-4 control-label" for="save"></label>
+                 <div class="col-md-4">
+                   <button id="save" name="save" class="btn btn-inverse">Save Changes</button>
+                  </div>
+               </div>
             
-                  <button id="save" name="save" class="btn btn-inverse">Save Changes</button>
                 
             
             </fieldset>
