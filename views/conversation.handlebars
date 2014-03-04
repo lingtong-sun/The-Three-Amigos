@@ -65,10 +65,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 	  			var elapsed = {{timeElapsed}};
 	  			console.log("conversation.handlebars --> time to reach conversation page: " + elapsed);
 
-	  			ga('send', 'event', 'Record Time To Reach Convo', 'click', elapsed);
-	  			ga('send', 'event', 'Time Elapsed Before Convo', 'click', 'convo', elapsed);
-
-				ga('send', 'timing', 'jQuery', 'Time to Reach Convo', elapsed, 'Sample');	  		
+	  			ga('send', 'event', 'Record Time To Reach Convo', 'click', elapsed);	  		
 			}
 	  	</script>
 
