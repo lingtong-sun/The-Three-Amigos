@@ -1,7 +1,11 @@
-
 var models = require('../models');
 
 exports.viewConversation = function(req, res){
+
+	var timeElapsed = (new Date().getTime() - req.session.startTime);
+	console.log("chat.js --> time elapsed: " + timeElapsed);
+
+
 	var friend_id = req.params.id;
 	var my_id = req.session.user_id;
 	console.log("conversation: "+ friend_id);
@@ -30,12 +34,13 @@ exports.viewConversation = function(req, res){
 			.exec(afterFindMessages);
 
 		function afterFindMessages(err, messages) {
+			console.log("timeElapsed in afterFindMessages: " + timeElapsed);
 			if(err) console.log(err);
 			if (messages.length == 0) {
 				if(req.session.versionA) {
-					res.render('conversation', {"messages": db_messages ,"versionA" : true});
+					res.render('conversation', {"messages": db_messages ,"versionA" : true, "timeElapsed" : timeElapsed});
 				} else {
-					res.render('conversation', {"messages": db_messages ,"versionA" : false});
+					res.render('conversation', {"messages": db_messages ,"versionA" : false, "timeElapsed" : timeElapsed});
 				}
 			}
 			for (var i=0; i < messages.length; i++) {
@@ -54,11 +59,10 @@ exports.viewConversation = function(req, res){
 			console.log(db_messages);
 			console.log(friend["user_two"]);
 			if (req.session.versionA) {
-				res.render('conversation', {"messages": db_messages, "friend": friend["user_two"], "versionA" : true});
+				res.render('conversation', {"messages": db_messages, "friend": friend["user_two"], "versionA" : true, "timeElapsed" : timeElapsed});
 			} else {
-				res.render('conversation', {"messages": db_messages, "friend": friend["user_two"], "versionA" : false});
+				res.render('conversation', {"messages": db_messages, "friend": friend["user_two"], "versionA" : false, "timeElapsed" : timeElapsed});
 			}
-
 		}
 	}
 

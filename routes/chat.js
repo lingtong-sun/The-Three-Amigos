@@ -1,7 +1,7 @@
-
 var models = require('../models');
 
 exports.view = function(req, res){
+  req.session.startTime = new Date().getTime();
   console.log("chat.js --> " + req.session.user_name + " has ID: " + req.session.user_id);
   console.log("chat.js --> start time var: " + req.session.startTime);
 

@@ -16,9 +16,9 @@ function initializePage() {
 	window.scrollTo(0, $(document).height());
 }
 
-
-function sendMessage(e) {
+function sendMessage(req, e) {
 	e.preventDefault();
+
 	ga('send', 'event', 'Send Message in Convo Button', 'click');
 
 	var textbox = $("#messagetext");
