@@ -22,7 +22,7 @@ exports.changeSettings = function(req, res){
 		if(err) console.log(err);
 		console.log(user);
 		console.log("UPDATED");
-		res.send();
+		//res.send();
 	}
 };
 
