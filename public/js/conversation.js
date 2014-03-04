@@ -3,7 +3,7 @@
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
 	initializePage();
-	setInterval("updateConversation(), 10000");
+	//setInterval("updateConversation(), 15000");
 })
 
 $( window ).load(function() {
