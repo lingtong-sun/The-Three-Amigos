@@ -59,7 +59,9 @@
 	  		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 	  			<div class="container-fluid back-button">
 	  				<a class="click-area" href="../chat"><i class="fa fa-chevron-left fa-lg"></i></a>
-	  				<p class="name">{{friend.name}} </p>
+	  				<p class="name">{{friend.name}}<img class="img-circle convo-pic" src="{{friend.image}}"/></p>
+
+
 	  			</div>
 	  		</nav>
 	  		
@@ -67,14 +69,14 @@
 
 	  		<div class="convo" id = "conversationbody">
 	  			{{#each messages}}
-	  			<div class="message well {{type}}">
-	  				<img class="img-circle convo-pic" src="{{message.sender.image}}"/>
-	  				<div class="from-date">
-	  					<h5>{{message.sender.name}}</h5>
+	  			<div class="message {{type}}">
+	  			<div class="well">
+	  				<p class="msg-text">{{message.translated}}</p>
+	  			</div>
+	  			<div class="from-date">
+	  					<p>{{message.sender.name}}</p>
 	  					<p>{{message.send_time}}</p>
 	  				</div>
-	  				
-	  				<p class="msg-text">{{message.translated}}</p>
 	  			</div>
 	  			{{/each}}
 	  		</div>

@@ -47,17 +47,15 @@
 .convo-pic {
 	width: 50px;
 	height: 50px;
+	margin: 5px;
 }
 
-.back-button, .convo-header {
-	padding-top: 10px;
-}
 
 .click-area {
 	padding: 5px 10px 5px 10px;
 	float: left;
-	margin-bottom: 5px;
-	margin-top: 0px;
+	margin: 10px 0px 10px 0px;
+
 }
 
 .name{
@@ -76,8 +74,9 @@
 }
 
 .from-date h5 {
-	font-size: 12px;
+	font-size: 11px;
 	margin:2px;
+	color: gray;
 
 }
 
@@ -91,7 +90,7 @@
 	clear: both;
 }
 
-.from-date, .convo-pic {
+.from-date {
 	float: left;
 	margin: 5px;
 
@@ -120,7 +119,6 @@ body {
 
 .navbar-default {
 	background-color: #dedede;
-	opacity:0.95;
 }
 
 .hidden {
@@ -146,4 +144,10 @@ body {
 
 .form-group {
 	margin-bottom: 0px;
+}
+
+.message .well {
+	padding: 10px;
+	margin-bottom: 0px;
+	margin-top: 15px;
 }
