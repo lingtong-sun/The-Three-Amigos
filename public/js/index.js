@@ -33,7 +33,7 @@ function initializePage() {
   		templates: {
   			suggestion: function(friend){
   				return '<div>'
-  						+'<img class="img-circle" src="'+friend.image+'" style="float:left">'
+  						+'<img class="img-circle" src="'+friend.image+'" style="float:left"/>'
   						+'<p>' + friend.name + '</p>'
   						+'</div>';
   			}
