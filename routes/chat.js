@@ -60,12 +60,19 @@ exports.view = function(req, res){
     		if (messages.length == 0) return;
     		var friend = messages[0]['sender'];
     		if (messages[0]['sender']['_id'] == current_user) friend = messages[0]['recipient'];
-        var formattedtime = moment(messages[0].send_time).format("lll");
-        messages[0] = messages[0].toObject();
-        messages[0]['send_time'] = formattedtime;
-  
+       
     		db_messages.push({"friend": friend, "message": messages[0]});
-        if (message_counter == 1) db_messages.sort(sortDBMessages);
+        if (message_counter == 1){
+          db_messages.sort(sortDBMessages);
+          for (var k =0; k < db_messages.length; k++) {
+              var formattedtime = moment(db_messages[k].message.send_time).format("lll"); 
+              db_messages[k].message = db_messages[k].message.toObject();
+              db_messages[k].message.send_time = formattedtime;
+          }
+        //    var formattedtime = moment(messages[0].send_time).format("lll");
+        // messages[0] = messages[0].toObject();
+        // messages[0]['send_time'] = formattedtime;
+        } 
     		message_counter--;
     		if(my_profile!=undefined && db_users!=undefined && message_counter==0) {
     	//		console.log(db_messages);
