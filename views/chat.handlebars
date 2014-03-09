@@ -1,185 +1,190 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
 
-  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
 
-  <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
 
-  <meta charset="utf-8">
-  <title>Spanglish</title>
-  <meta name="description" content=""/>
+    <meta charset="utf-8">
+    <title>Spanglish</title>
+    <meta name="description" content=""/>
 
-  <!-- Loading Bootstrap -->
-  <link href="flat-ui/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- Loading Bootstrap -->
+    <link href="flat-ui/bootstrap/css/bootstrap.css" rel="stylesheet">
 
-  <!-- Loading Flat UI -->
-   
+    <!-- Loading Flat UI -->
+
     <link href="flat-ui/css/flat-ui.css" rel="stylesheet">
     <link href="flat-ui/css/demo.css" rel="stylesheet">
-  
+    
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-  
-  <link href="css/spanglish.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    
+    <link href="css/spanglish.css" rel="stylesheet">
 
 
-<link href='http://fonts.googleapis.com/css?family=Delius' rel='stylesheet' type='text/css'>
-  <link rel="shortcut icon" href="flat-ui/flat-ui/images/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Delius' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="flat-ui/flat-ui/images/favicon.ico">
 
-  <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
-    <!--[if lt IE 9]>
-      <script src="flat-ui/js/html5shiv.js"></script>
-      <script src="flat-ui/js/respond.min.js"></script>
-      <![endif]-->
-    </head>
-    <body>
-              <script src="js/index.js"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+      <!--[if lt IE 9]>
+        <script src="flat-ui/js/html5shiv.js"></script>
+        <script src="flat-ui/js/respond.min.js"></script>
+        <![endif]-->
+      </head>
+      <body>
+        <script src="js/index.js"></script>
 
-      <!-- START FACEBOOK SCRIPT -->
-      <div id="fb-root"></div>
-      <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-                appId      : '1452060145024625',
-                status     : true, // check login status
-                cookie     : true, // enable cookies to allow the server to access the session
-                xfbml      : true  // parse XFBML
-              });
+        <!-- START FACEBOOK SCRIPT -->
+        <div id="fb-root"></div>
+        <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId      : '1452060145024625',
+                  status     : true, // check login status
+                  cookie     : true, // enable cookies to allow the server to access the session
+                  xfbml      : true  // parse XFBML
+                });
 
-        FB.getLoginStatus(function(response) {
-          if (response.status === 'connected') {
-                      // the user is logged in and has authenticated your
-                      // app --> do nothing
-                      console.log("chat.handlebars --> user token live");
-                    } else if (response.status === 'not_authorized') {
-                      // the user is logged in to Facebook, 
-                      // but has not authenticated app
-                      console.log("chat.handlebars --> app not authenticated");
-                      window.location.replace("index");
-                    } else {
-                      // the user isn't logged in to Facebook.
-                      console.log("chat.handlebars --> user not logged in");
-                      window.location.replace("/");
-                    }
-                  });
+          FB.getLoginStatus(function(response) {
+            if (response.status === 'connected') {
+                        // the user is logged in and has authenticated your
+                        // app --> do nothing
+                        console.log("chat.handlebars --> user token live");
+                      } else if (response.status === 'not_authorized') {
+                        // the user is logged in to Facebook, 
+                        // but has not authenticated app
+                        console.log("chat.handlebars --> app not authenticated");
+                        window.location.replace("index");
+                      } else {
+                        // the user isn't logged in to Facebook.
+                        console.log("chat.handlebars --> user not logged in");
+                        window.location.replace("/");
+                      }
+                    });
         };
 
-          // Load the Facebook SDK asynchronously
-          (function(d){
-           var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-           if (d.getElementById(id)) {return;}
-           js = d.createElement('script'); js.id = id; js.async = true;
-           js.src = "//connect.facebook.net/en_US/all.js";
-           ref.parentNode.insertBefore(js, ref);
-         }(document));
+            // Load the Facebook SDK asynchronously
+            (function(d){
+             var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement('script'); js.id = id; js.async = true;
+             js.src = "//connect.facebook.net/en_US/all.js";
+             ref.parentNode.insertBefore(js, ref);
+           }(document));
 
-          // Logout the user and rediect to the homepage
-          function logout() {
-            console.log("chat.handlebars --> logging out");
-            FB.logout(function(response) {
-              window.location.replace("/");
-            });
-          }
+            // Logout the user and rediect to the homepage
+            function logout() {
+              console.log("chat.handlebars --> logging out");
+              FB.logout(function(response) {
+                window.location.replace("/");
+              });
+            }
 
-          function invite() {
-            console.log("chat.handlebars --> inviting friends");
-            FB.ui({method: 'apprequests',
-              message: 'Hey! Join Spanglish with me so we can chat together and learn a new language!'
+            function invite() {
+              console.log("chat.handlebars --> inviting friends");
+              FB.ui({method: 'apprequests',
+                message: 'Hey! Join Spanglish with me so we can chat together and learn a new language!'
               }, function(response) {console.log("chat.handlebars --> invited " + response);}
-            );
-          }
+              );
+            }
 
-          </script>
-          <!-- END FACEBOOK SCRIPT -->
-
-
-<!--
-  Below we include the Login Button social plugin. This button uses the JavaScript SDK to
-  present a graphical Login button that triggers the FB.login() function when clicked. -->
-
-  <div class="container-fluid">
+            </script>
+            <!-- END FACEBOOK SCRIPT -->
 
 
-    <nav class="navbar navbar-default navbar-fixed-top top-buttons" role="navigation">
-      <div class="container-fluid testing">
+  <!--
+    Below we include the Login Button social plugin. This button uses the JavaScript SDK to
+    present a graphical Login button that triggers the FB.login() function when clicked. -->
 
-       <!-- Nav tabs -->
-       <ul class="nav nav-pills nav-justified navbar-btn">
-        <li id="chats1" class="active"><a class="col-xs-4" href="#chats" data-toggle="tab"><i class="fa fa-comments fa-lg"></i></a></li>
-        <li id="friends1"><a class="col-xs-4" href="#friends" data-toggle="tab"><i class="fa fa-users fa-lg"></i></a></li>
-        <li id="settings1"><a class="col-xs-4" href="#settings" data-toggle="tab"><i class="fa fa-cog fa-lg"></i></a></li>
-      </ul>
-
-    </div>
-  </nav>
+    <div class="container-fluid">
 
 
+      <nav class="navbar navbar-default navbar-fixed-top top-buttons" role="navigation">
+        <div class="container-fluid testing">
 
+         <!-- Nav tabs -->
+         <ul class="nav nav-pills nav-justified navbar-btn">
+          <li id="chats1" class="active"><a class="col-xs-4" href="#chats" data-toggle="tab"><i class="fa fa-comments fa-lg"></i></a></li>
+          <li id="friends1"><a class="col-xs-4" href="#friends" data-toggle="tab"><i class="fa fa-users fa-lg"></i></a></li>
+          <li id="settings1"><a class="col-xs-4" href="#settings" data-toggle="tab"><i class="fa fa-cog fa-lg"></i></a></li>
+        </ul>
 
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <div class="tab-pane active" id="chats">
+      </div>
+    </nav>
 
 
 
-      <table>
-        {{#each messages}}
-        <tr class="friend convo-link" href="/conversation/{{friend._id}}">
-          <td class="pic" rowspan=2><img class="img-responsive img-circle" src="{{friend.image}}"/></td>
-          <td>{{friend.name}}</td>
-        </tr>
-        <tr class="bottom friend convo-link" href="/conversation/{{friend._id}}"><td class="description">{{message.translated}}<td></tr>
-        {{/each}}
-      </table>
-    </div>
 
-    <div class="tab-pane" id="friends">
-
-      <!--<div class="input-group">
-        <input type="text" class="form-control">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
-        </span>
-      </div>--><!-- /input-group -->
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div class="tab-pane active" id="chats">
 
 
-      <table>
-        {{#each users}}
-        <tr class="friend bottom convo-link" href="conversation/{{user_two._id}}">
-          <td class="pic"><img class="img-responsive img-circle" src="{{user_two.image}}"/></td>
-          <td>{{user_two.name}}</td>
-        </tr>
-        {{/each}}
-      </table>
+
+        <table>
+            {{#each messages}}
+            <tr class="friend convo-link" href="/conversation/{{friend._id}}">
+              <td class="pic" rowspan=2><img class="img-responsive img-circle" src="{{friend.image}}"/></td>
+              <td>{{friend.name}} <span class="time"> {{message.send_time}}</span></td>
+            </tr>
+            <tr class="bottom friend convo-link" href="/conversation/{{friend._id}}">
+              <td class="description">{{message.translated}} </td>
+            </tr>
+            {{/each}}
 
 
-    </div>
 
-    <div class="tab-pane" id="settings">
-      <div class="info">
-        <h5> {{curr_user.name}} </h5>
-        <img class="img-circle bigger-pic" src="{{curr_user.image}}"/>
+        </table>
       </div>
 
-   
+      <div class="tab-pane" id="friends">
+
+        <!--<div class="input-group">
+          <input type="text" class="form-control">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+          </span>
+        </div>--><!-- /input-group -->
 
 
-      <div style="display: none ;" id="save-notice" class="alert alert-warning fade in">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> Changes saved!
+        <table>
+          {{#each users}}
+          <tr class="friend bottom convo-link" href="conversation/{{user_two._id}}">
+            <td class="pic"><img class="img-responsive img-circle" src="{{user_two.image}}"/></td>
+            <td>{{user_two.name}}</td>
+          </tr>
+          {{/each}}
+        </table>
+
+
       </div>
 
-      <button id="invite" class="btn btn-inverse" onclick = "invite()">Invite Friends</button>
+      <div class="tab-pane" id="settings">
+        <div class="info">
+          <h5> {{curr_user.name}} </h5>
+          <img class="img-circle bigger-pic" src="{{curr_user.image}}"/>
+        </div>
 
 
-      <form id="settingform" class="form-horizontal" action="chat/changeSettings">
-        <fieldset>
 
-          <!-- Select Basic -->
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="sendlang"> Send Language</label>
+
+        <div style="display: none ;" id="save-notice" class="alert alert-warning fade in">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> Changes saved!
+        </div>
+
+        <button id="invite" class="btn btn-inverse" onclick = "invite()">Invite Friends</button>
+
+
+        <form id="settingform" class="form-horizontal" action="chat/changeSettings">
+          <fieldset>
+
+            <!-- Select Basic -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="sendlang"> Send Language</label>
               <input id="sendval" type="hidden" name="lang" value="{{curr_user.send_language}}">
               <div class="col-md-6">
                 <select id="sendlang" name="sendlang" class="form-control">
@@ -193,131 +198,128 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="receivelang">Receive Language</label>
               <input id="recieveval" type="hidden" name="lang" value="{{curr_user.receive_language}}">
-                <div class="col-md-6">
-                  <select id="recievelang" name="recievelang" class="form-control">
-                    <option value="en">English</option>
-                    <option value="es">Spanish</option>
-                  </select>
-                </div>
+              <div class="col-md-6">
+                <select id="recievelang" name="recievelang" class="form-control">
+                  <option value="en">English</option>
+                  <option value="es">Spanish</option>
+                </select>
               </div>
+            </div>
 
-              <script type="text/javascript">
-              
-              var s = document.getElementById("sendlang");
-              var r = document.getElementById("recievelang");
-              var sval = document.getElementById("sendval").value;
-              var rval = document.getElementById("recieveval").value;
-              console.log(sval);
-              console.log(rval);
+            <script type="text/javascript">
 
-              setSelectedIndex(s, sval);
-              setSelectedIndex(r, rval);
-              function setSelectedIndex(s, v) {
-                for ( var i = 0; i < s.options.length; i++ ) {
-                  if ( s.options[i].value == v ) {
-                    s.options[i].selected = true;
-                    return;
-                  }
+            var s = document.getElementById("sendlang");
+            var r = document.getElementById("recievelang");
+            var sval = document.getElementById("sendval").value;
+            var rval = document.getElementById("recieveval").value;
+            console.log(sval);
+            console.log(rval);
+
+            setSelectedIndex(s, sval);
+            setSelectedIndex(r, rval);
+            function setSelectedIndex(s, v) {
+              for ( var i = 0; i < s.options.length; i++ ) {
+                if ( s.options[i].value == v ) {
+                  s.options[i].selected = true;
+                  return;
                 }
               }
-              
-              </script>
+            }
 
-             <!-- Button -->
-               <div class="form-group">
-                 <label class="col-md-4 control-label" for="save"></label>
-                 <div class="col-md-4">
-                   <button id="save" name="save" class="btn btn-inverse">Save Changes</button>
+            </script>
+
+            <!-- Button -->
+            <div class="form-group">
+             <label class="col-md-4 control-label" for="save"></label>
+             <div class="col-md-4">
+               <button id="save" name="save" class="btn btn-inverse">Save Changes</button>
+             </div>
+           </div>
+
+
+
+         </fieldset>
+       </form>
+
+     </div>
+
+     {{#if versionA}}
+     <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+      <div class="container-fluid">
+
+        <a href="#fakelink" id = "newmessage" class="btn btn-block btn-lg btn-primary navbar-btn" data-toggle="modal" data-target="#new-msg">New Message <i class="fa fa-envelope"></i></span>
+        </a>
+
+      </div>
+    </nav>
+    {{/if}} 
+
+    <div class="modal fade bs-modal-sm" id="new-msg">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-body">
+            <form class="form-horizontal" id="messageform" action="chat/sendMessage">
+              <fieldset>
+                <!-- Text input-->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="recipient">Recipient</label>  
+                  <div class="col-md-6">
+                    <input id="recipient" name="recipient" type="text" placeholder="Recipient" class="form-control input-md typeahead" data-provide="typeahead" required>
                   </div>
+                </div>
+
+                <!-- Textarea -->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="message">Message</label>
+                  <div class="col-md-4">                     
+                   <textarea class="form-control" id="message" name="message" required></textarea>
+                 </div>
                </div>
-            
-                
-            
+               <div class="centered form-group">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                <input type="submit" id="sendmessage" value="Send Message" class="btn btn-primary"></input>
+              </div>
             </fieldset>
           </form>
 
+
         </div>
 
-        {{#if versionA}}
-        <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-          <div class="container-fluid">
-
-            <a href="#fakelink" id = "newmessage" class="btn btn-block btn-lg btn-primary navbar-btn" data-toggle="modal" data-target="#new-msg">New Message <i class="fa fa-envelope"></i></span>
-            </a>
-
-          </div>
-        </nav>
-        {{/if}} 
-
-        <div class="modal fade bs-modal-sm" id="new-msg">
-          <div class="modal-dialog">
-            <div class="modal-content">
-
-              <div class="modal-body">
-                <form class="form-horizontal" id="messageform" action="chat/sendMessage">
-                  <fieldset>
-
-                    <!-- Form Name -->
-
-                    <!-- Text input-->
-                    <div class="form-group">
-                      <label class="col-md-4 control-label" for="recipient">Recipient</label>  
-                      <div class="col-md-6">
-                        <input id="recipient" name="recipient" type="text" placeholder="Recipient" class="form-control input-md typeahead" data-provide="typeahead" required>
-                      </div>
-                    </div>
-
-                    <!-- Textarea -->
-                    <div class="form-group">
-                      <label class="col-md-4 control-label" for="message">Message</label>
-                      <div class="col-md-4">                     
-                         <textarea class="form-control" id="message" name="message" required></textarea>
-                      </div>
-                    </div>
-                    <div class="centered form-group">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-                       <input type="submit" id="sendmessage" value="Send Message" class="btn btn-primary"></input>
-                    </div>
-                  </fieldset>
-                </form>
-
-
-              </div>
-
-            </div><!-- /.modal-content -->
-          </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 
 
 
-        <!-- Load JS here for greater good =============================-->
-        <script src="https://code.jquery.com/jquery.js"></script>
-        <script src="flat-ui/js/jquery-1.8.3.min.js"></script>
-        <script src="flat-ui/js/jquery-ui-1.10.3.custom.min.js"></script>
-        <script src="flat-ui/js/jquery.ui.touch-punch.min.js"></script>
-        <script src="flat-ui/js/bootstrap.min.js"></script>
-        <script src="flat-ui/js/bootstrap-select.js"></script>
-        <script src="flat-ui/js/bootstrap-switch.js"></script>
-        <script src="flat-ui/js/flatui-checkbox.js"></script>
-        <script src="flat-ui/js/flatui-radio.js"></script>
-        <script src="flat-ui/js/jquery.tagsinput.js"></script>
-        <script src="flat-ui/js/jquery.placeholder.js"></script>
-        <script src="flat-ui/js/jquery.stacktable.js"></script>
-        <script src="http://vjs.zencdn.net/4.3/video.js"></script>
-        <script src="flat-ui/js/application.js"></script>
-        <script src="js/clickable.js"></script>
-        <script src="typeahead.js/typeahead.bundle.js"></script>
-        <script src="js/index.js"></script>
+  <!-- Load JS here for greater good =============================-->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="flat-ui/js/jquery-1.8.3.min.js"></script>
+  <script src="flat-ui/js/jquery-ui-1.10.3.custom.min.js"></script>
+  <script src="flat-ui/js/jquery.ui.touch-punch.min.js"></script>
+  <script src="flat-ui/js/bootstrap.min.js"></script>
+  <script src="flat-ui/js/bootstrap-select.js"></script>
+  <script src="flat-ui/js/bootstrap-switch.js"></script>
+  <script src="flat-ui/js/flatui-checkbox.js"></script>
+  <script src="flat-ui/js/flatui-radio.js"></script>
+  <script src="flat-ui/js/jquery.tagsinput.js"></script>
+  <script src="flat-ui/js/jquery.placeholder.js"></script>
+  <script src="flat-ui/js/jquery.stacktable.js"></script>
+  <script src="http://vjs.zencdn.net/4.3/video.js"></script>
+  <script src="flat-ui/js/application.js"></script>
+  <script src="js/clickable.js"></script>
+  <script src="typeahead.js/typeahead.bundle.js"></script>
+  <script src="js/index.js"></script>
 
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-          ga('create', 'UA-48453636-2', 'spanglish.herokuapp.com');
-          ga('send', 'pageview');
-        </script>
-      </body>
-      </html>
+  ga('create', 'UA-48453636-2', 'spanglish.herokuapp.com');
+  ga('send', 'pageview');
+  </script>
+  </body>
+  </html>
