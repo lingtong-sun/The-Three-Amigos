@@ -66,7 +66,7 @@
 	  		</nav>
 	  		
 
-
+     		{{#if messages}}
 	  		<div class="convo" id = "conversationbody">
 	  			{{#each messages}}
 	  			<div class="message {{type}}">
@@ -81,6 +81,12 @@
 	  			{{/each}}
 	  		</div>
 
+	  		{{else}}
+
+			<div class="start-convo">          	
+          	<p> Start a conversation! </p>
+        	</div>
+        	{{/if}}
 	  	
 	  		<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
 

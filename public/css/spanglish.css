@@ -151,3 +151,18 @@ body {
 	margin-bottom: 0px;
 	margin-top: 15px;
 }
+
+.message {
+	width: 80%
+}
+
+.start-convo {
+	color: gray;
+	text-align: center;
+}
+
+.time {
+	color: gray;
+	float: right;
+	font-size: 14px;
+}
