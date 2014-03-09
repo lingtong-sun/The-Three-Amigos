@@ -1,5 +1,5 @@
 var models = require('../models');
-
+var moment = require('moment');
 exports.view = function(req, res){
   req.session.startTime = new Date().getTime();
   console.log("chat.js --> " + req.session.user_name + " has ID: " + req.session.user_id);
@@ -22,7 +22,7 @@ exports.view = function(req, res){
    	my_profile = me;
    //	console.log(me);
    	if(my_profile!=undefined && db_users!=undefined && message_counter==0) {
-   		//console.log(db_messages);
+  // 		console.log(db_messages);
       if(req.session.versionA) {
  		     res.render('chat', {"users": db_users, "curr_user": my_profile,
  				 "messages": db_messages, "versionA" : true})
@@ -56,14 +56,19 @@ exports.view = function(req, res){
 
     	function afterFindMessages(err, messages) {
     		if(err) console.log(err);
-      //  console.log(messages);
+  //      console.log(messages);
     		if (messages.length == 0) return;
     		var friend = messages[0]['sender'];
     		if (messages[0]['sender']['_id'] == current_user) friend = messages[0]['recipient'];
+        var formattedtime = moment(messages[0].send_time).format("lll");
+        messages[0] = messages[0].toObject();
+        messages[0]['send_time'] = formattedtime;
+  
     		db_messages.push({"friend": friend, "message": messages[0]});
+        if (message_counter == 1) db_messages.sort(sortDBMessages);
     		message_counter--;
     		if(my_profile!=undefined && db_users!=undefined && message_counter==0) {
-    //			console.log(db_messages);
+    	//		console.log(db_messages);
      				if(req.session.versionA) {
               res.render('chat', {"users": db_users, "curr_user": my_profile,
               "messages": db_messages, "versionA" : true})
@@ -76,7 +81,7 @@ exports.view = function(req, res){
     }
 
  	if(my_profile!=undefined && db_users!=undefined && message_counter==0) {
- 	//	console.log(db_messages);
+ 		//console.log(db_messages);
  		if(req.session.versionA) {
       res.render('chat', {"users": db_users, "curr_user": my_profile,
       "messages": db_messages, "versionA" : true})
@@ -87,3 +92,7 @@ exports.view = function(req, res){
  	}  	
   }
 };
+
+function sortDBMessages (one, two) {
+  return two.message.send_time - one.message.send_time;
+}

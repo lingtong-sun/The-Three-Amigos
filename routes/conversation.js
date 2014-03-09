@@ -1,4 +1,5 @@
 var models = require('../models');
+var moment = require('moment');
 
 exports.viewConversation = function(req, res){
 
@@ -50,6 +51,11 @@ exports.viewConversation = function(req, res){
 				if (messages[i]['sender']['_id'] == friend_id) {
 					type = "receiver";
 				}
+			//	console.log(messages[i]);
+				messages[i] = messages[i].toObject();
+				var formattedtime = moment(messages[i].send_time).format("lll");
+
+				messages[i].send_time = formattedtime;
 				db_messages.push({"message": messages[i],
 									"type": type});
 				

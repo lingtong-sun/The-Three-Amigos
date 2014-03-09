@@ -10,7 +10,7 @@ exports.queryDatabase = function(req, res){
 
   	function afterGettingUserData(err, users) {
   		if(err) console.log(err);
-  		console.log(users);
+  	//	console.log(users);
   		var return_data= new Array();
   		for (var i=0; i<users.length; i++) {
   			return_data.push(users[i]["user_two"]);
